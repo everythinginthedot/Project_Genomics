@@ -6,6 +6,8 @@
 
 This is my bioinformatics project for the "Genomcis" course. Here will be all the necessary information
 
+<br>
+
 ## **Data**
 
 ### **Reference genome** 
@@ -17,6 +19,8 @@ wget "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/906/535/GCF_016906535.1_A
 
 Shasum GCF_016906535.1_ASM1690653v1_genomic.fna:  
 _87326de160c2cdf7436eef52a591c5abc4a1c1a8_  
+
+<br>
 
 ### **HiFi reads**  
 
@@ -88,6 +92,8 @@ sum_len: ****
 min_len: ****  
 avg_len: ****  
 max_len: ****  
+
+<br>
 
 ### **Illumina reads**
 
