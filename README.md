@@ -85,15 +85,19 @@ After command `fasterq-dump SRR19543541` we get **SRR19543541.fastq** file
 Shasum SRR19543541.fastq:  
 _3700c3f7a5c89eaf92beaa79b2e9379e497271c6_  
 
-
-Reads base statistics:  
-num_seqs: ****  
-sum_len: ****  
-min_len: ****  
-avg_len: ****  
-max_len: ****  
-
 <br>
+
+New Nanopore reads **SRR17331923** (GridION) were downloaded from https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR17331923&display=metadata using command:
+```
+prefetch SRR17331923
+fasterq-dump SRR17331923
+```
+
+After command `fasterq-dump SRR17331923` we get file **SRR17331923.fastq**  
+
+Shasum SRR17331923.fastq:
+_c661512388e38debe5a84347e48f3b9e00c702ae_
+
 
 ### **Illumina reads**
 
@@ -123,3 +127,81 @@ sum_len: **2,714,739,600**
 min_len: **100**  
 avg_len: **100**  
 max_len: **100**  
+
+
+<br>
+
+## **Quality control**
+
+### **FastQC**
+
+<br>
+
+### **Nanopore**
+
+#### **Preliminary QC**
+Nanopore reads quality was estimated using command:  
+```
+NanoPlot --fastq SRR[number].fastq -o SRR[number]_nanoplot
+```
+
+<br>
+
+#### **Adapter trimming**
+Nanopore reads were trimmed using **Popechop**:  
+```
+porechop -i SRR[number].fastq -o SRR[number]_trimmed.fastq
+```
+
+
+<br>
+
+#### **Reads filtering**
+Nanopore reads were filtered using **Filtlong**:  
+```
+filtlong --min_length 1000 --keep_percent 90 SRR[number]_trimmed.fq > SRR[number]_clean.fastq
+```
+
+<br>
+
+### **Trimmomatic**
+
+<br>
+
+## **Assembly**
+
+### **SPAdes**
+
+First assembly was produced with Illumina paired-end reads **SRR11560048** using command:
+```
+spades.py -1 reads/Illumina/SRR11560048_1.fastq -2 reads/Illumina/SRR11560048_2.fastq -o spades_illumina_SRR11560048_pe --isolate
+```
+
+After retrieving results we started to analyze the assembly using commands:
+```
+assembly-stats spades_illumina_SRR11560048_pe/contigs.fasta 
+```
+stats for spades_illumina_SRR11560048_pe/contigs.fasta  
+sum = 65398275, n = 292113, ave = 223.88, largest = 33176  
+N50 = 573, n = 18677  
+N60 = 211, n = 39623  
+N70 = 139, n = 78889  
+N80 = 111, n = 134265  
+N90 = 93, n = 194685  
+N100 = 56, n = 292113  
+N_count = 0  
+Gaps = 0  
+
+```
+assembly-stats spades_illumina_SRR11560048_pe/scaffolds.fasta 
+```
+stats for spades_illumina_SRR11560048_pe/scaffolds.fasta  
+sum = 65623110, n = 289852, ave = 226.40, largest = 50535  
+N50 = 581, n = 16257  
+N60 = 213, n = 36940  
+N70 = 139, n = 76143  
+N80 = 111, n = 131599  
+N90 = 93, n = 192183  
+N100 = 56, n = 289852   
+N_count = 225040  
+Gaps = 2261  
