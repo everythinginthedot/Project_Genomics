@@ -133,7 +133,17 @@ max_len: **100**
 
 ## **Quality control**
 
-### **FastQC**
+
+### **HiFi reads**
+
+
+#### **FastQC**
+The quality of HiFi reads was measured using FastQC tool:  
+```
+fastqc SRR11560043.fastq
+```
+Results of quality control were surprisingly fine.
+
 
 <br>
 
@@ -153,6 +163,20 @@ Nanopore reads were trimmed using **Popechop**:
 porechop -i SRR[number].fastq -o SRR[number]_trimmed.fastq
 ```
 
+##### **SRR17331923.fastq**
+322,194 / 332,671 reads had adapters trimmed from their start (22,130,418 bp removed)  
+187,323 / 332,671 reads had adapters trimmed from their end (8,262,121 bp removed)  
+
+1,287 / 332,671 reads were split based on middle adapters  
+
+
+##### **SRR15096500.fastq**
+2,274,209 / 2,311,521 reads had adapters trimmed from their start (154,862,480 bp removed)  
+1,530,260 / 2,311,521 reads had adapters trimmed from their end (76,219,041 bp removed)  
+
+4,102 / 2,311,521 reads were split based on middle adapters  
+
+
 
 <br>
 
@@ -161,6 +185,9 @@ Nanopore reads were filtered using **Filtlong**:
 ```
 filtlong --min_length 1000 --keep_percent 90 SRR[number]_trimmed.fq > SRR[number]_clean.fastq
 ```
+
+#### **QC again**
+
 
 <br>
 
@@ -205,3 +232,23 @@ N90 = 93, n = 192183
 N100 = 56, n = 289852   
 N_count = 225040  
 Gaps = 2261  
+
+
+### **SMARTdenovo**
+
+#### **Nanopore reads**
+First assembly using nanopore reads was made using SMARTdenovo tool.  
+```
+smartdenovo.pl -p SMARTdenovo_nanopore_SRR17331923 -t 8 -c 1 reads/Nanopore/SRR17331923_clean.fastq > SMARTdenovo_nanopore_SRR17331923.mak
+time make -f SMARTdenovo_nanopore_SRR17331923.mak
+```
+
+<br>
+
+#### **HiFi reads**
+First assembly using HiFi reads was made using SMARTdenovo tool.  
+```
+smartdenovo.pl -p SMARTdenovo_HIFI_SRR11560043 -t 8 -c 1 reads/HIFI/SRR11560043.fastq > SMARTdenovo_HIFI_SRR11560043.mak
+
+time make -f SMARTdenovo_HIFI_SRR11560043.mak 
+```
