@@ -27,7 +27,7 @@ Shasum `GCF_016906535.1_ASM1690653v1_genomic.fna`:
 
 ### 🧬 **HiFi reads**
 
-**NOT USED!** HiFi **SRR11560043** reads were downloaded from [NCBI Trace Archive](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560043&display=data-access) on the 29 Oct 2025 using:
+HiFi **SRR11560043** reads were downloaded from [NCBI Trace Archive](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560043&display=data-access) on the 29 Oct 2025 using:
 ```
 prefetch SRR11560043
 fasterq-dump SRR11560043
@@ -38,7 +38,7 @@ Shasum: `7d0633ac6899248839021b8eac02aaa67113764d`
 
 ---
 
-New HiFi reads were downloaded from [SRR34390379](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
+**NOT USED!** Another HiFi reads were downloaded from [SRR34390379](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
 ```
 prefetch SRR34390379
 fasterq-dump SRR34390379
@@ -46,13 +46,6 @@ fasterq-dump SRR34390379
 
 Resulting file: `SRR34390379.fastq`  
 Shasum: `f23b3523af9fe21aeef2066da8ba14444e2a0ea7`
-
-**Reads base statistics:**  
-- num_seqs: 862,936  
-- sum_len: 12,507,209,914  
-- min_len: 115  
-- avg_len: 14,493.8  
-- max_len: 61,784  
 
 ---
 
@@ -93,7 +86,7 @@ Shasum: `c661512388e38debe5a84347e48f3b9e00c702ae`
 
 ### 🧬 **Illumina reads**
 
-Illumina (HiSeq 2000) paired-end reads **SRR11560048** were downloaded from [SRR11560048 metadata](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560048&display=metadata) on 29 Oct 2025:
+Illumina (HiSeq 2000) paired-end reads **SRR11560048** were downloaded from [SRR11560048](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560048&display=metadata) on 29 Oct 2025:
 ```
 prefetch SRR11560048
 fasterq-dump SRR11560048
@@ -128,7 +121,7 @@ SRR11560048_2.fastq:
 ```
 fastqc SRR11560043.fastq
 ```
-Results of quality control were fine.
+Results of quality control were ideal.
 
 ---
 
@@ -138,6 +131,8 @@ Results of quality control were fine.
 ```
 NanoPlot --fastq SRR[number].fastq -o SRR[number]_nanoplot
 ```
+
+![SRR17331923 nanoplot statistics](./data/images/SRR17331923_nanoplot_STATS.png)
 
 #### **Adapter trimming**
 ```
@@ -158,6 +153,10 @@ porechop -i SRR[number].fastq -o SRR[number]_trimmed.fastq
 ```
 filtlong --min_length 1000 --keep_percent 90 SRR[number]_trimmed.fq > SRR[number]_clean.fastq
 ```
+
+#### **QC after filtering**
+
+![SRR17331923 nanoplot statistics](./data/images/SRR17331923_nanoplot_clean_STATS.png)
 
 ---
 
