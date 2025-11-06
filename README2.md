@@ -7,7 +7,7 @@ This repository contains all datasets, commands, and analyses used in the projec
 
 ## 📖 **Description**
 
-This project focuses on genome assembly and quality assessment of *Rhizoctonia solani* using multiple sequencing technologies (HiFi, Nanopore, and Illumina).
+This project focuses on genome assembly, annotation and quality assessment of *Rhizoctonia solani* using multiple sequencing technologies (HiFi, Nanopore, and Illumina).
 
 ---
 
@@ -20,14 +20,14 @@ Reference genome of *Rhizoctonia solani* was downloaded using this command on th
 wget "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/906/535/GCF_016906535.1_ASM1690653v1/GCF_016906535.1_ASM1690653v1_genomic.fna.gz"
 ```
 
-Shasum `GCF_016906535.1_ASM1690653v1_genomic.fna`:  
-`87326de160c2cdf7436eef52a591c5abc4a1c1a8`
+Resulting file:  `GCF_016906535.1_ASM1690653v1_genomic.fna`
+Shasum:  `87326de160c2cdf7436eef52a591c5abc4a1c1a8`
 
 ---
 
 ### 🧬 **HiFi reads**
 
-HiFi **SRR11560043** reads were downloaded from [NCBI Trace Archive](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560043&display=data-access) on the 29 Oct 2025 using:
+HiFi **SRR11560043** reads were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560043&display=data-access) on the 29 Oct 2025 using:
 ```
 prefetch SRR11560043
 fasterq-dump SRR11560043
@@ -38,7 +38,7 @@ Shasum: `7d0633ac6899248839021b8eac02aaa67113764d`
 
 ---
 
-**NOT USED!** Another HiFi reads were downloaded from [SRR34390379](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
+**NOT USED!** Another HiFi **SRR34390379** reads were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
 ```
 prefetch SRR34390379
 fasterq-dump SRR34390379
@@ -51,7 +51,7 @@ Shasum: `f23b3523af9fe21aeef2066da8ba14444e2a0ea7`
 
 ### 🧬 **Nanopore reads**
 
-**NOT USED!** Nanopore (MinION) reads **SRR15096500** were downloaded from [SRR15096500 metadata](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR15096500&display=metadata) on 29 Oct 2025:
+**NOT USED!** Nanopore (MinION) reads **SRR15096500** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR15096500&display=metadata) on 29 Oct 2025:
 ```
 prefetch SRR15096500
 fasterq-dump SRR15096500
@@ -62,7 +62,7 @@ Shasum: `f4e79543b6a3d936150af0e368712cd2b494912b`
 
 ---
 
-New Nanopore reads **SRR19543541** (PromethION) were downloaded from [SRR19543541](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR19543541):
+**NOT USED!** New Nanopore reads **SRR19543541** (PromethION) were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR19543541):
 ```
 prefetch SRR19543541
 fasterq-dump SRR19543541
@@ -73,7 +73,7 @@ Shasum: `3700c3f7a5c89eaf92beaa79b2e9379e497271c6`
 
 ---
 
-New Nanopore reads **SRR17331923** (GridION) were downloaded from [SRR17331923 metadata](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR17331923&display=metadata):
+New Nanopore reads **SRR17331923** (GridION) were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR17331923&display=metadata):
 ```
 prefetch SRR17331923
 fasterq-dump SRR17331923
@@ -86,7 +86,7 @@ Shasum: `c661512388e38debe5a84347e48f3b9e00c702ae`
 
 ### 🧬 **Illumina reads**
 
-Illumina (HiSeq 2000) paired-end reads **SRR11560048** were downloaded from [SRR11560048](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560048&display=metadata) on 29 Oct 2025:
+Illumina (HiSeq 2000) paired-end reads **SRR11560048** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560048&display=metadata) on 29 Oct 2025:
 ```
 prefetch SRR11560048
 fasterq-dump SRR11560048
@@ -99,17 +99,6 @@ Resulting files:
 Shasum:  
 - `400207f8cdc226f6040585bf38bd1d595a2cea36  SRR11560048_1.fastq`  
 - `a89e8f9008a3a575ab8d01ccedc519795f22bdff  SRR11560048_2.fastq`
-
-**Reads base statistics:**  
-SRR11560048_1.fastq:  
-- num_seqs: 27,147,396  
-- sum_len: 2,714,739,600  
-- avg_len: 100  
-
-SRR11560048_2.fastq:  
-- num_seqs: 27,147,396  
-- sum_len: 2,714,739,600  
-- avg_len: 100  
 
 ---
 
@@ -157,6 +146,10 @@ filtlong --min_length 1000 --keep_percent 90 SRR[number]_trimmed.fq > SRR[number
 #### **QC after filtering**
 
 ![SRR17331923 nanoplot statistics](./data/images/SRR17331923_nanoplot_clean_STATS.png)
+
+### **Illumina**
+
+#### **FastQC**
 
 ---
 
