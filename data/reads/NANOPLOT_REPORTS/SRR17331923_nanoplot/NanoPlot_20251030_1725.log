@@ -1,0 +1,248 @@
+2025-10-30 17:25:02,594 NanoPlot 1.46.1 started with arguments Namespace(threads=4, verbose=False, store=False, raw=False, huge=False, outdir='SRR17331923_nanoplot', no_static=False, prefix='', tsv_stats=False, only_report=False, info_in_report=False, maxlength=None, minlength=None, drop_outliers=False, downsample=None, loglength=False, percentqual=False, alength=False, minqual=None, runtime_until=None, readtype='1D', barcoded=False, no_supplementary=False, color='#4CB391', colormap='Greens', format=['png'], plots=['kde', 'dot'], legacy=None, listcolors=False, listcolormaps=False, no_N50=False, N50=False, title=None, font_scale=1, dpi=100, hide_stats=False, fastq=['SRR17331923.fastq'], fasta=None, fastq_rich=None, fastq_minimal=None, summary=None, bam=None, ubam=None, cram=None, pickle=None, feather=None, path='SRR17331923_nanoplot/')
+2025-10-30 17:25:02,594 Python version is: 3.10.19 | packaged by conda-forge | (main, Oct 13 2025, 14:08:27) [GCC 14.3.0]
+2025-10-30 17:25:02,606 Nanoget: Starting to collect statistics from plain fastq file.
+2025-10-30 17:26:54,096 Reduced DataFrame memory usage from 5.0762786865234375Mb to 5.0762786865234375Mb
+2025-10-30 17:26:54,126 Nanoget: Gathered all metrics of 332671 reads
+2025-10-30 17:26:54,282 Calculated statistics
+2025-10-30 17:26:54,283 Using sequenced read lengths for plotting.
+2025-10-30 17:26:54,292 NanoPlot:  Valid color #4CB391.
+2025-10-30 17:26:54,292 NanoPlot:  Valid colormap Greens.
+2025-10-30 17:26:54,294 NanoPlot:  Creating length plots for Read length.
+2025-10-30 17:26:54,294 NanoPlot:  Using 332671 reads maximum of 244968bp.
+2025-10-30 17:26:54,423 Chromium init'ed with kwargs {}
+2025-10-30 17:26:54,423 Found chromium path: /home/genomika25/miniconda3/envs/genomika/lib/python3.10/site-packages/choreographer/cli/browser_exe/chrome-linux64/chrome
+2025-10-30 17:26:54,424 Temp directory created: /tmp/tmpyz6mpagu.
+2025-10-30 17:26:54,424 Opening browser.
+2025-10-30 17:26:54,426 Temp directory created: /tmp/tmp8zo890_3.
+2025-10-30 17:26:54,443 Temporary directory at: /tmp/tmp8zo890_3
+2025-10-30 17:26:54,669 Conforming 1 to file:///tmp/tmpyz6mpagu/index.html
+2025-10-30 17:26:54,669 Waiting on all navigates
+2025-10-30 17:26:55,848 All navigates done, putting them all in queue.
+2025-10-30 17:26:55,850 Getting tab from queue (has 1)
+2025-10-30 17:26:55,850 Got A538
+2025-10-30 17:26:55,850 Processing Weighted_histogram_of_read_lengths.png
+2025-10-30 17:26:55,850 Sending big command for Weighted_histogram_of_read_lengths.png.
+2025-10-30 17:26:55,979 Sent big command for Weighted_histogram_of_read_lengths.png.
+2025-10-30 17:26:55,980 Reloading tab A538 before return.
+2025-10-30 17:26:56,137 Putting tab A538 back (queue size: 0).
+2025-10-30 17:26:56,137 Waiting for all cleanups to finish.
+2025-10-30 17:26:56,137 Exiting Kaleido
+2025-10-30 17:26:56,137 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:26:56,138 shutil.rmtree worked.
+2025-10-30 17:26:56,138 Cancelling tasks.
+2025-10-30 17:26:56,138 Exiting Kaleido/Choreo
+2025-10-30 17:26:56,138 Closing browser.
+2025-10-30 17:26:56,140 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:26:56,140 shutil.rmtree worked.
+2025-10-30 17:26:56,140 Cancelling tasks.
+2025-10-30 17:26:56,140 Exiting Kaleido/Choreo
+2025-10-30 17:26:56,140 Closing browser.
+2025-10-30 17:26:56,259 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:26:56,259 shutil.rmtree worked.
+2025-10-30 17:26:56,260 Saved SRR17331923_nanoplot/WeightedHistogramReadlength.png as png
+2025-10-30 17:26:56,306 Chromium init'ed with kwargs {}
+2025-10-30 17:26:56,306 Found chromium path: /home/genomika25/miniconda3/envs/genomika/lib/python3.10/site-packages/choreographer/cli/browser_exe/chrome-linux64/chrome
+2025-10-30 17:26:56,306 Temp directory created: /tmp/tmpbwjmi4ml.
+2025-10-30 17:26:56,307 Opening browser.
+2025-10-30 17:26:56,307 Temp directory created: /tmp/tmpkjv5hlkp.
+2025-10-30 17:26:56,324 Temporary directory at: /tmp/tmpkjv5hlkp
+2025-10-30 17:26:56,551 Conforming 1 to file:///tmp/tmpbwjmi4ml/index.html
+2025-10-30 17:26:56,551 Waiting on all navigates
+2025-10-30 17:26:57,717 All navigates done, putting them all in queue.
+2025-10-30 17:26:57,719 Getting tab from queue (has 1)
+2025-10-30 17:26:57,719 Got 216E
+2025-10-30 17:26:57,719 Processing Weighted_histogram_of_read_lengths_after_log_transformation.png
+2025-10-30 17:26:57,719 Sending big command for Weighted_histogram_of_read_lengths_after_log_transformation.png.
+2025-10-30 17:26:57,851 Sent big command for Weighted_histogram_of_read_lengths_after_log_transformation.png.
+2025-10-30 17:26:57,852 Reloading tab 216E before return.
+2025-10-30 17:26:58,007 Putting tab 216E back (queue size: 0).
+2025-10-30 17:26:58,007 Waiting for all cleanups to finish.
+2025-10-30 17:26:58,007 Exiting Kaleido
+2025-10-30 17:26:58,008 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:26:58,008 shutil.rmtree worked.
+2025-10-30 17:26:58,008 Cancelling tasks.
+2025-10-30 17:26:58,008 Exiting Kaleido/Choreo
+2025-10-30 17:26:58,008 Closing browser.
+2025-10-30 17:26:58,010 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:26:58,010 shutil.rmtree worked.
+2025-10-30 17:26:58,010 Cancelling tasks.
+2025-10-30 17:26:58,010 Exiting Kaleido/Choreo
+2025-10-30 17:26:58,010 Closing browser.
+2025-10-30 17:26:58,131 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:26:58,131 shutil.rmtree worked.
+2025-10-30 17:26:58,133 Saved SRR17331923_nanoplot/WeightedLogTransformed_HistogramReadlength.png as png
+2025-10-30 17:26:58,168 Chromium init'ed with kwargs {}
+2025-10-30 17:26:58,169 Found chromium path: /home/genomika25/miniconda3/envs/genomika/lib/python3.10/site-packages/choreographer/cli/browser_exe/chrome-linux64/chrome
+2025-10-30 17:26:58,169 Temp directory created: /tmp/tmpjo6bq0h5.
+2025-10-30 17:26:58,169 Opening browser.
+2025-10-30 17:26:58,170 Temp directory created: /tmp/tmpah8vqx_u.
+2025-10-30 17:26:58,184 Temporary directory at: /tmp/tmpah8vqx_u
+2025-10-30 17:26:58,428 Conforming 1 to file:///tmp/tmpjo6bq0h5/index.html
+2025-10-30 17:26:58,428 Waiting on all navigates
+2025-10-30 17:26:59,580 All navigates done, putting them all in queue.
+2025-10-30 17:26:59,581 Getting tab from queue (has 1)
+2025-10-30 17:26:59,581 Got 3113
+2025-10-30 17:26:59,582 Processing Non_weighted_histogram_of_read_lengths.png
+2025-10-30 17:26:59,582 Sending big command for Non_weighted_histogram_of_read_lengths.png.
+2025-10-30 17:26:59,710 Sent big command for Non_weighted_histogram_of_read_lengths.png.
+2025-10-30 17:26:59,711 Reloading tab 3113 before return.
+2025-10-30 17:26:59,865 Putting tab 3113 back (queue size: 0).
+2025-10-30 17:26:59,866 Waiting for all cleanups to finish.
+2025-10-30 17:26:59,866 Exiting Kaleido
+2025-10-30 17:26:59,866 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:26:59,866 shutil.rmtree worked.
+2025-10-30 17:26:59,866 Cancelling tasks.
+2025-10-30 17:26:59,866 Exiting Kaleido/Choreo
+2025-10-30 17:26:59,866 Closing browser.
+2025-10-30 17:26:59,868 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:26:59,868 shutil.rmtree worked.
+2025-10-30 17:26:59,869 Cancelling tasks.
+2025-10-30 17:26:59,869 Exiting Kaleido/Choreo
+2025-10-30 17:26:59,869 Closing browser.
+2025-10-30 17:26:59,992 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:26:59,992 shutil.rmtree worked.
+2025-10-30 17:26:59,993 Saved SRR17331923_nanoplot/Non_weightedHistogramReadlength.png as png
+2025-10-30 17:27:00,005 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:00,005 shutil.rmtree worked.
+2025-10-30 17:27:00,035 Chromium init'ed with kwargs {}
+2025-10-30 17:27:00,035 Found chromium path: /home/genomika25/miniconda3/envs/genomika/lib/python3.10/site-packages/choreographer/cli/browser_exe/chrome-linux64/chrome
+2025-10-30 17:27:00,036 Temp directory created: /tmp/tmp_5wxywrq.
+2025-10-30 17:27:00,036 Opening browser.
+2025-10-30 17:27:00,037 Temp directory created: /tmp/tmpqzd3c5lh.
+2025-10-30 17:27:00,052 Temporary directory at: /tmp/tmpqzd3c5lh
+2025-10-30 17:27:00,283 Conforming 1 to file:///tmp/tmp_5wxywrq/index.html
+2025-10-30 17:27:00,283 Waiting on all navigates
+2025-10-30 17:27:01,440 All navigates done, putting them all in queue.
+2025-10-30 17:27:01,441 Getting tab from queue (has 1)
+2025-10-30 17:27:01,441 Got CE94
+2025-10-30 17:27:01,442 Processing Non_weighted_histogram_of_read_lengths_after_log_transformation.png
+2025-10-30 17:27:01,442 Sending big command for Non_weighted_histogram_of_read_lengths_after_log_transformation.png.
+2025-10-30 17:27:01,571 Sent big command for Non_weighted_histogram_of_read_lengths_after_log_transformation.png.
+2025-10-30 17:27:01,572 Reloading tab CE94 before return.
+2025-10-30 17:27:01,729 Putting tab CE94 back (queue size: 0).
+2025-10-30 17:27:01,729 Waiting for all cleanups to finish.
+2025-10-30 17:27:01,729 Exiting Kaleido
+2025-10-30 17:27:01,729 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:01,730 shutil.rmtree worked.
+2025-10-30 17:27:01,730 Cancelling tasks.
+2025-10-30 17:27:01,730 Exiting Kaleido/Choreo
+2025-10-30 17:27:01,730 Closing browser.
+2025-10-30 17:27:01,732 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:01,732 shutil.rmtree worked.
+2025-10-30 17:27:01,732 Cancelling tasks.
+2025-10-30 17:27:01,732 Exiting Kaleido/Choreo
+2025-10-30 17:27:01,732 Closing browser.
+2025-10-30 17:27:01,855 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:01,855 shutil.rmtree worked.
+2025-10-30 17:27:01,857 Saved SRR17331923_nanoplot/Non_weightedLogTransformed_HistogramReadlength.png as png
+2025-10-30 17:27:01,857 NanoPlot: Creating yield by minimal length plot for Read length.
+2025-10-30 17:27:01,881 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:01,881 shutil.rmtree worked.
+2025-10-30 17:27:01,882 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:01,882 shutil.rmtree worked.
+2025-10-30 17:27:01,882 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:01,882 shutil.rmtree worked.
+2025-10-30 17:27:01,987 Chromium init'ed with kwargs {}
+2025-10-30 17:27:01,988 Found chromium path: /home/genomika25/miniconda3/envs/genomika/lib/python3.10/site-packages/choreographer/cli/browser_exe/chrome-linux64/chrome
+2025-10-30 17:27:01,988 Temp directory created: /tmp/tmp87zihfm8.
+2025-10-30 17:27:01,988 Opening browser.
+2025-10-30 17:27:01,989 Temp directory created: /tmp/tmplzzkygdh.
+2025-10-30 17:27:02,003 Temporary directory at: /tmp/tmplzzkygdh
+2025-10-30 17:27:02,243 Conforming 1 to file:///tmp/tmp87zihfm8/index.html
+2025-10-30 17:27:02,243 Waiting on all navigates
+2025-10-30 17:27:03,411 All navigates done, putting them all in queue.
+2025-10-30 17:27:03,413 Getting tab from queue (has 1)
+2025-10-30 17:27:03,413 Got AC5B
+2025-10-30 17:27:03,413 Processing Yield_by_length.png
+2025-10-30 17:27:03,413 Sending big command for Yield_by_length.png.
+2025-10-30 17:27:03,965 Sent big command for Yield_by_length.png.
+2025-10-30 17:27:03,966 Reloading tab AC5B before return.
+2025-10-30 17:27:04,155 Putting tab AC5B back (queue size: 0).
+2025-10-30 17:27:04,155 Waiting for all cleanups to finish.
+2025-10-30 17:27:04,155 Exiting Kaleido
+2025-10-30 17:27:04,156 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:04,156 shutil.rmtree worked.
+2025-10-30 17:27:04,156 Cancelling tasks.
+2025-10-30 17:27:04,156 Exiting Kaleido/Choreo
+2025-10-30 17:27:04,156 Closing browser.
+2025-10-30 17:27:04,158 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:04,158 shutil.rmtree worked.
+2025-10-30 17:27:04,158 Cancelling tasks.
+2025-10-30 17:27:04,158 Exiting Kaleido/Choreo
+2025-10-30 17:27:04,158 Closing browser.
+2025-10-30 17:27:04,282 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:04,282 shutil.rmtree worked.
+2025-10-30 17:27:04,283 Saved SRR17331923_nanoplot/Yield_By_Length.png as png
+2025-10-30 17:27:04,283 Created length plots
+2025-10-30 17:27:04,288 NanoPlot: Creating Read lengths vs Average read quality plots using 332671 reads.
+2025-10-30 17:27:04,316 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:04,316 shutil.rmtree worked.
+2025-10-30 17:27:04,399 Chromium init'ed with kwargs {}
+2025-10-30 17:27:04,400 Found chromium path: /home/genomika25/miniconda3/envs/genomika/lib/python3.10/site-packages/choreographer/cli/browser_exe/chrome-linux64/chrome
+2025-10-30 17:27:04,400 Temp directory created: /tmp/tmp51p1od2a.
+2025-10-30 17:27:04,400 Opening browser.
+2025-10-30 17:27:04,401 Temp directory created: /tmp/tmpmiur6jap.
+2025-10-30 17:27:04,418 Temporary directory at: /tmp/tmpmiur6jap
+2025-10-30 17:27:04,664 Conforming 1 to file:///tmp/tmp51p1od2a/index.html
+2025-10-30 17:27:04,665 Waiting on all navigates
+2025-10-30 17:27:05,821 All navigates done, putting them all in queue.
+2025-10-30 17:27:05,823 Getting tab from queue (has 1)
+2025-10-30 17:27:05,823 Got B829
+2025-10-30 17:27:05,823 Processing Read_lengths_vs_Average_read_quality_plot_using_dots.png
+2025-10-30 17:27:05,823 Sending big command for Read_lengths_vs_Average_read_quality_plot_using_dots.png.
+2025-10-30 17:27:06,449 Sent big command for Read_lengths_vs_Average_read_quality_plot_using_dots.png.
+2025-10-30 17:27:06,450 Reloading tab B829 before return.
+2025-10-30 17:27:06,645 Putting tab B829 back (queue size: 0).
+2025-10-30 17:27:06,646 Waiting for all cleanups to finish.
+2025-10-30 17:27:06,646 Exiting Kaleido
+2025-10-30 17:27:06,646 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:06,646 shutil.rmtree worked.
+2025-10-30 17:27:06,646 Cancelling tasks.
+2025-10-30 17:27:06,646 Exiting Kaleido/Choreo
+2025-10-30 17:27:06,646 Closing browser.
+2025-10-30 17:27:06,649 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:06,649 shutil.rmtree worked.
+2025-10-30 17:27:06,649 Cancelling tasks.
+2025-10-30 17:27:06,649 Exiting Kaleido/Choreo
+2025-10-30 17:27:06,649 Closing browser.
+2025-10-30 17:27:06,773 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:06,773 shutil.rmtree worked.
+2025-10-30 17:27:06,774 Saved SRR17331923_nanoplot/LengthvsQualityScatterPlot_dot.png as png
+2025-10-30 17:27:06,819 Chromium init'ed with kwargs {}
+2025-10-30 17:27:06,819 Found chromium path: /home/genomika25/miniconda3/envs/genomika/lib/python3.10/site-packages/choreographer/cli/browser_exe/chrome-linux64/chrome
+2025-10-30 17:27:06,819 Temp directory created: /tmp/tmpywqgyt7y.
+2025-10-30 17:27:06,819 Opening browser.
+2025-10-30 17:27:06,820 Temp directory created: /tmp/tmp6r_azylo.
+2025-10-30 17:27:06,836 Temporary directory at: /tmp/tmp6r_azylo
+2025-10-30 17:27:07,084 Conforming 1 to file:///tmp/tmpywqgyt7y/index.html
+2025-10-30 17:27:07,084 Waiting on all navigates
+2025-10-30 17:27:08,264 All navigates done, putting them all in queue.
+2025-10-30 17:27:08,266 Getting tab from queue (has 1)
+2025-10-30 17:27:08,266 Got CD3B
+2025-10-30 17:27:08,266 Processing Read_lengths_vs_Average_read_quality_kde_plot.png
+2025-10-30 17:27:08,266 Sending big command for Read_lengths_vs_Average_read_quality_kde_plot.png.
+2025-10-30 17:27:08,996 Sent big command for Read_lengths_vs_Average_read_quality_kde_plot.png.
+2025-10-30 17:27:08,999 Reloading tab CD3B before return.
+2025-10-30 17:27:09,155 Putting tab CD3B back (queue size: 0).
+2025-10-30 17:27:09,155 Waiting for all cleanups to finish.
+2025-10-30 17:27:09,155 Exiting Kaleido
+2025-10-30 17:27:09,156 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:09,156 shutil.rmtree worked.
+2025-10-30 17:27:09,156 Cancelling tasks.
+2025-10-30 17:27:09,156 Exiting Kaleido/Choreo
+2025-10-30 17:27:09,156 Closing browser.
+2025-10-30 17:27:09,159 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:09,159 shutil.rmtree worked.
+2025-10-30 17:27:09,159 Cancelling tasks.
+2025-10-30 17:27:09,159 Exiting Kaleido/Choreo
+2025-10-30 17:27:09,160 Closing browser.
+2025-10-30 17:27:09,277 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:09,277 shutil.rmtree worked.
+2025-10-30 17:27:09,278 Saved SRR17331923_nanoplot/LengthvsQualityScatterPlot_kde.png as png
+2025-10-30 17:27:09,279 Created LengthvsQual plot
+2025-10-30 17:27:09,279 Writing html report.
+2025-10-30 17:27:09,285 Finished!
+2025-10-30 17:27:09,340 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:09,340 shutil.rmtree worked.
+2025-10-30 17:27:09,340 TemporaryDirectory.cleanup() worked.
+2025-10-30 17:27:09,340 shutil.rmtree worked.
