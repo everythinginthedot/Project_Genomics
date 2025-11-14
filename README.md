@@ -174,6 +174,14 @@ sum = 65623110, n = 289852, ave = 226.40, largest = 50535
 N50 = 581
 ```
 
+Assembly visualisation
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/ \ spades_illumina_SRR11560048_pe/scaffolds.fasta -p nucmer_spades_illumina_SRR11560048
+
+mummerplot -p dot_nucmer_spades_illumina_SRR11560048 -t png \ nucmer_spades_illumina_SRR11560048.delta
+```
+![SRR11560048 assembly plot](./data/images/dot_nucmer_spades_illumina_SRR11560048.png)
+
 ---
 
 ### **SMARTdenovo**
