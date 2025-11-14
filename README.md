@@ -214,3 +214,54 @@ nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/SMART
 mummerplot -p dot_SMARTdenovo_HIFI_SRR11560043_plot -t png SMARTdenovo_HIFI_SRR11560043_plot.delta
 ```
 ![SRR11560043 assembly plot](./data/images/dot_SMARTdenovo_nanopore_SRR17331923_plot.png)
+
+---
+
+### **Minimap2**
+
+#### **Nanopore reads**
+
+```
+time minimap2 -x ava-ont -t 10 reads/Nanopore/SRR17331923_clean.fastq reads/Nanopore/SRR17331923_clean.fastq|gzip -1 > assembly/Minimap2_nanopore_SRR17331923/Minimap2_nanopore_SRR17331923.paf.gz
+
+miniasm -e2 -n1 -f reads/Nanopore/SRR17331923_clean.fastq assembly/Minimap2_nanopore_SRR17331923/Minimap2_nanopore_SRR17331923.paf.gz > assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.gfa
+
+awk '/^S/{print ">"$2"\n"$3}' miniasm_nanopore_SRR17331923.gfa > miniasm_nanopore_SRR17331923.fa
+
+assembly-stats miniasm_nanopore_SRR17331923.fa 
+```
+
+stats for miniasm_nanopore_SRR17331923.fa
+sum = 65527457, n = 812, ave = 80698.84, largest = 2389453
+N50 = 183020, n = 68
+N60 = 106608, n = 115
+N70 = 72827, n = 192
+N80 = 52178, n = 299
+N90 = 33121, n = 459
+N100 = 2152, n = 812
+N_count = 0
+Gaps = 0
+
+
+#### **HiFi reads**
+
+```
+time minimap2 -x ava-pb -t 10 reads/HIFI/SRR11560043.fastq reads/HIFI/SRR11560043.fastq|gzip =1 > assembly/Minimap2_HIFI_SRR11560043/Minimap2_HIFI_SRR11560043.paf.gz
+
+miniasm -e2 -n1 -f reads/HIFI/SRR11560043.fastq assembly/Minimap2_HIFI_SRR11560043/Minimap2_HIFI_SRR11560043.paf.gz > assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.gfa
+
+awk '/^S/{print ">"$2"\n"$3}' miniasm_HIFI_SRR11560043.gfa > miniasm_HIFI_SRR11560043.fa
+
+assembly-stats miniasm_HIFI_SRR11560043.fa 
+```
+
+stats for miniasm_HIFI_SRR11560043.fa
+sum = 79841692, n = 988, ave = 80811.43, largest = 1215607
+N50 = 117368, n = 178
+N60 = 94095, n = 254
+N70 = 72464, n = 352
+N80 = 53781, n = 480
+N90 = 34281, n = 661
+N100 = 5001, n = 988
+N_count = 0
+Gaps = 0
