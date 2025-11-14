@@ -231,16 +231,16 @@ awk '/^S/{print ">"$2"\n"$3}' miniasm_nanopore_SRR17331923.gfa > miniasm_nanopor
 assembly-stats miniasm_nanopore_SRR17331923.fa 
 ```
 
-stats for miniasm_nanopore_SRR17331923.fa
-sum = 65527457, n = 812, ave = 80698.84, largest = 2389453
-N50 = 183020, n = 68
-N60 = 106608, n = 115
-N70 = 72827, n = 192
-N80 = 52178, n = 299
-N90 = 33121, n = 459
-N100 = 2152, n = 812
-N_count = 0
-Gaps = 0
+stats for miniasm_nanopore_SRR17331923.fa  
+sum = 65527457, n = 812, ave = 80698.84, largest = 2389453  
+N50 = 183020, n = 68  
+N60 = 106608, n = 115  
+N70 = 72827, n = 192   
+N80 = 52178, n = 299  
+N90 = 33121, n = 459  
+N100 = 2152, n = 812  
+N_count = 0  
+Gaps = 0  
 
 
 #### **HiFi reads**
@@ -255,13 +255,13 @@ awk '/^S/{print ">"$2"\n"$3}' miniasm_HIFI_SRR11560043.gfa > miniasm_HIFI_SRR115
 assembly-stats miniasm_HIFI_SRR11560043.fa 
 ```
 
-stats for miniasm_HIFI_SRR11560043.fa
-sum = 79841692, n = 988, ave = 80811.43, largest = 1215607
-N50 = 117368, n = 178
-N60 = 94095, n = 254
-N70 = 72464, n = 352
-N80 = 53781, n = 480
-N90 = 34281, n = 661
-N100 = 5001, n = 988
-N_count = 0
-Gaps = 0
+stats for miniasm_HIFI_SRR11560043.fa  
+sum = 79841692, n = 988, ave = 80811.43, largest = 1215607  
+N50 = 117368, n = 178  
+N60 = 94095, n = 254  
+N70 = 72464, n = 352  
+N80 = 53781, n = 480  
+N90 = 34281, n = 661  
+N100 = 5001, n = 988  
+N_count = 0  
+Gaps = 0  
