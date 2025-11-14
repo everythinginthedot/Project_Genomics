@@ -174,11 +174,11 @@ sum = 65623110, n = 289852, ave = 226.40, largest = 50535
 N50 = 581
 ```
 
-Assembly visualisation
+Assembly visualization
 ```
-nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/ \ spades_illumina_SRR11560048_pe/scaffolds.fasta -p nucmer_spades_illumina_SRR11560048
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta -p nucmer_spades_illumina_SRR11560048
 
-mummerplot -p dot_nucmer_spades_illumina_SRR11560048 -t png \ nucmer_spades_illumina_SRR11560048.delta
+mummerplot -p dot_nucmer_spades_illumina_SRR11560048 -t png nucmer_spades_illumina_SRR11560048.delta
 ```
 ![SRR11560048 assembly plot](./data/images/dot_nucmer_spades_illumina_SRR11560048.png)
 
@@ -192,8 +192,25 @@ smartdenovo.pl -p SMARTdenovo_nanopore_SRR17331923 -t 8 -c 1 reads/Nanopore/SRR1
 time make -f SMARTdenovo_nanopore_SRR17331923.mak
 ```
 
+Assembly visualization
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns -p SMARTdenovo_nanopore_SRR17331923_plot
+
+mummerplot -p dot_SMARTdenovo_nanopore_SRR17331923_plot -t png SMARTdenovo_nanopore_SRR17331923_plot.delta
+```
+![SRR17331923 assembly plot](./data/images/dot_SMARTdenovo_nanopore_SRR17331923_plot.png)
+
 #### **HiFi reads**
 ```
 smartdenovo.pl -p SMARTdenovo_HIFI_SRR11560043 -t 8 -c 1 reads/HIFI/SRR11560043.fastq > SMARTdenovo_HIFI_SRR11560043.mak
 time make -f SMARTdenovo_HIFI_SRR11560043.mak
 ```
+
+
+Assembly visualization
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns -p SMARTdenovo_HIFI_SRR11560043_plot
+
+mummerplot -p dot_SMARTdenovo_HIFI_SRR11560043_plot -t png SMARTdenovo_HIFI_SRR11560043_plot.delta
+```
+![SRR11560043 assembly plot](./data/images/dot_SMARTdenovo_nanopore_SRR17331923_plot.png)
