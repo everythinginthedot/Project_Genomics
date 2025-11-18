@@ -240,8 +240,19 @@ N80 = 52178, n = 299
 N90 = 33121, n = 459  
 N100 = 2152, n = 812  
 N_count = 0  
-Gaps = 0  
+Gaps = 0 
 
+**Assembly visualization**
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa
+ -p assembly/Visualisation/Minimap2_nanopore_SRR17331923/Minimap2_nanopore_SRR17331923
+
+mummerplot -t png -p dot_Minimap2_nanopore_SRR17331923 Minimap2_nanopore_SRR17331923.delta
+```
+
+![SRR17331923 assembly plot](./data/images/dot_Minimap2_nanopore_SRR17331923.png)
+
+---
 
 #### **HiFi reads**
 
@@ -265,3 +276,13 @@ N90 = 34281, n = 661
 N100 = 5001, n = 988  
 N_count = 0  
 Gaps = 0  
+
+
+**Assembly visualization**  
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa -p assembly/Visualisation/Minimap2_HIFI_SRR11560043/Minimap2_HIFI_SRR11560043
+
+mummerplot -t png -p dot_Minimap2_HIFI_SRR11560043 Minimap2_HIFI_SRR11560043.delta
+```
+
+![SRR11560043 assembly plot](./data/images/dot_Minimap2_HIFI_SRR11560043.png)
