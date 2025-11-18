@@ -1,0 +1,23 @@
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                     spades_illumina_pe  smart_nanopore  smart_hifi  miniasm_nanopore  miniasm_hifi
+# misassemblies              269                 0               1905        0                 0           
+  # contig misassemblies     268                 0               1905        0                 0           
+    # c. relocations         145                 0               472         0                 0           
+    # c. translocations      122                 0               1421        0                 0           
+    # c. inversions          1                   0               12          0                 0           
+  # scaffold misassemblies   1                   0               0           0                 0           
+    # s. relocations         0                   0               0           0                 0           
+    # s. translocations      1                   0               0           0                 0           
+    # s. inversions          0                   0               0           0                 0           
+# misassembled contigs       222                 0               95          0                 0           
+Misassembled contigs length  688874              0               46572596    0                 0           
+# local misassemblies        439                 0               1009        0                 0           
+# scaffold gap ext. mis.     1                   0               0           0                 0           
+# scaffold gap loc. mis.     2049                0               0           0                 0           
+# unaligned mis. contigs     271                 25              6           68                761         
+# mismatches                 95759               4072            215857      1548              37444       
+# indels                     27796               249             76217       68                6           
+    # indels (<= 5 bp)       26976               243             74311       68                6           
+    # indels (> 5 bp)        820                 6               1906        0                 0           
+Indels length                53326               374             135745      97                6           

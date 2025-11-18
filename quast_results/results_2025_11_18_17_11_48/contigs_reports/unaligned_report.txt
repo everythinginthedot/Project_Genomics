@@ -1,0 +1,8 @@
+All statistics are based on contigs of size >= 500 bp, unless otherwise noted (e.g., "# contigs (>= 0 bp)" and "Total length (>= 0 bp)" include all contigs).
+
+Assembly                       spades_illumina_pe  smart_nanopore  smart_hifi  miniasm_nanopore  miniasm_hifi
+# fully unaligned contigs      682                 438             8           686               202         
+Fully unaligned length         1240533             28328658        507617      29112908          5563578     
+# partially unaligned contigs  825                 42              108         126               786         
+Partially unaligned length     2177955             37150043        4265535     36362176          72789411    
+# N's                          224940              0               0           0                 0           
