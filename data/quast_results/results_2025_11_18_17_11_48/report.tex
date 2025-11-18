@@ -1,0 +1,62 @@
+\documentclass[12pt,a4paper]{article}
+\begin{document}
+\begin{table}[ht]
+\begin{center}
+\caption{All statistics are based on contigs of size $\geq$ 500 bp, unless otherwise noted (e.g., "\# contigs ($\geq$ 0 bp)" and "Total length ($\geq$ 0 bp)" include all contigs).}
+\begin{tabular}{|l*{5}{|r}|}
+\hline
+Assembly & spades\_illumina\_pe & smart\_nanopore & smart\_hifi & miniasm\_nanopore & miniasm\_hifi \\ \hline
+\# contigs ($\geq$ 0 bp) & 289852 & 480 & 142 & 812 & 988 \\ \hline
+\# contigs ($\geq$ 1000 bp) & 9252 & 480 & 142 & 812 & 988 \\ \hline
+\# contigs ($\geq$ 5000 bp) & 1276 & 480 & 142 & 807 & 988 \\ \hline
+\# contigs ($\geq$ 10000 bp) & 297 & 480 & 142 & 736 & 978 \\ \hline
+\# contigs ($\geq$ 25000 bp) & 13 & 418 & 140 & 559 & 825 \\ \hline
+\# contigs ($\geq$ 50000 bp) & 1 & 270 & 129 & 312 & 519 \\ \hline
+Total length ($\geq$ 0 bp) & 65623110 & 65586891 & 52432191 & 65527457 & {\bf 79841692} \\ \hline
+Total length ($\geq$ 1000 bp) & 27530705 & 65586891 & 52432191 & 65527457 & {\bf 79841692} \\ \hline
+Total length ($\geq$ 5000 bp) & 10894296 & 65586891 & 52432191 & 65508376 & {\bf 79841692} \\ \hline
+Total length ($\geq$ 10000 bp) & 4255994 & 65586891 & 52432191 & 64946245 & {\bf 79762260} \\ \hline
+Total length ($\geq$ 25000 bp) & 444026 & 64306924 & 52399583 & 61902955 & {\bf 76680860} \\ \hline
+Total length ($\geq$ 50000 bp) & 50535 & 58649891 & 51987596 & 53091890 & {\bf 65914207} \\ \hline
+\# contigs & 18763 & 480 & 142 & 812 & 988 \\ \hline
+Largest contig & 50535 & {\bf 3385294} & 2693633 & 2389453 & 1215607 \\ \hline
+Total length & 34172975 & 65586891 & 52432191 & 65527457 & {\bf 79841692} \\ \hline
+Reference length & 40703773 & 40703773 & 40703773 & 40703773 & 40703773 \\ \hline
+GC (\%) & 47.66 & 50.22 & 47.32 & 48.80 & 47.10 \\ \hline
+Reference GC (\%) & 47.63 & 47.63 & 47.63 & 47.63 & 47.63 \\ \hline
+N50 & 2945 & {\bf 794686} & 761856 & 183020 & 117368 \\ \hline
+NG50 & 2130 & {\bf 1890453} & 1309644 & 466190 & 222876 \\ \hline
+N75 & 1215 & 91524 & {\bf 307505} & 61701 & 63500 \\ \hline
+NG75 & 732 & {\bf 1158933} & 641907 & 228607 & 155312 \\ \hline
+L50 & 2913 & {\bf 18} & 19 & 68 & 178 \\ \hline
+LG50 & 4214 & {\bf 9} & 12 & 24 & 54 \\ \hline
+L75 & 7508 & 128 & {\bf 44} & 241 & 411 \\ \hline
+LG75 & 12743 & {\bf 15} & 25 & 56 & 108 \\ \hline
+\# misassemblies & 269 & {\bf 0} & 1905 & {\bf 0} & {\bf 0} \\ \hline
+\# misassembled contigs & 222 & {\bf 0} & 95 & {\bf 0} & {\bf 0} \\ \hline
+Misassembled contigs length & 688874 & {\bf 0} & 46572596 & {\bf 0} & {\bf 0} \\ \hline
+\# local misassemblies & 439 & {\bf 0} & 1009 & {\bf 0} & {\bf 0} \\ \hline
+\# scaffold gap ext. mis. & 1 & {\bf 0} & {\bf 0} & {\bf 0} & {\bf 0} \\ \hline
+\# scaffold gap loc. mis. & 2049 & {\bf 0} & {\bf 0} & {\bf 0} & {\bf 0} \\ \hline
+\# unaligned mis. contigs & 271 & 25 & {\bf 6} & 68 & 761 \\ \hline
+\# unaligned contigs & 682 + 825 part & 438 + 42 part & {\bf 8 + 108 part} & 686 + 126 part & 202 + 786 part \\ \hline
+Unaligned length & {\bf 3418488} & 65478701 & 4773152 & 65475084 & 78352989 \\ \hline
+Genome fraction (\%) & 72.599 & 0.078 & {\bf 96.305} & 0.063 & 3.605 \\ \hline
+Duplication ratio & 1.041 & 3.416 & 1.216 & 2.032 & {\bf 1.015} \\ \hline
+\# N's per 100 kbp & 658.24 & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} & {\bf 0.00} \\ \hline
+\# mismatches per 100 kbp & {\bf 324.05} & 12857.59 & 550.66 & 6006.52 & 2552.12 \\ \hline
+\# indels per 100 kbp & 94.06 & 786.23 & 194.43 & 263.85 & {\bf 0.41} \\ \hline
+Largest alignment & 50335 & 6636 & {\bf 1455867} & 1083 & 203 \\ \hline
+Total aligned length & 30374329 & 108202 & {\bf 47586516} & 52373 & 1488703 \\ \hline
+NA50 & 2097 & - & {\bf 166578} & - & - \\ \hline
+NGA50 & 1464 & - & {\bf 260749} & - & - \\ \hline
+NA75 & 823 & - & {\bf 45013} & - & - \\ \hline
+NGA75 & - & - & 119103 & - & - \\ \hline
+LA50 & 3665 & - & {\bf 70} & - & - \\ \hline
+LGA50 & 5534 & - & {\bf 42} & - & - \\ \hline
+LA75 & 10456 & - & {\bf 211} & - & - \\ \hline
+LGA75 & - & - & 100 & - & - \\ \hline
+\end{tabular}
+\end{center}
+\end{table}
+\end{document}
