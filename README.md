@@ -174,7 +174,7 @@ sum = 65623110, n = 289852, ave = 226.40, largest = 50535
 N50 = 581
 ```
 
-Assembly visualization
+**Assembly visualization**
 ```
 nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta -p nucmer_spades_illumina_SRR11560048
 
@@ -192,7 +192,22 @@ smartdenovo.pl -p SMARTdenovo_nanopore_SRR17331923 -t 8 -c 1 reads/Nanopore/SRR1
 time make -f SMARTdenovo_nanopore_SRR17331923.mak
 ```
 
-Assembly visualization
+```
+assembly-stats SMARTdenovo_nanopore_SRR17331923.dmo.cns
+```
+
+stats for SMARTdenovo_nanopore_SRR17331923.dmo.cns  
+sum = 65586891, n = 480, ave = 136639.36, largest = 3385294  
+N50 = 794686, n = 18  
+N60 = 153302, n = 43  
+N70 = 109601, n = 96  
+N80 = 72570, n = 168  
+N90 = 48564, n = 278  
+N100 = 14123, n = 480  
+N_count = 0  
+Gaps = 0  
+
+**Assembly visualization**
 ```
 nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns -p SMARTdenovo_nanopore_SRR17331923_plot
 
@@ -200,20 +215,36 @@ mummerplot -p dot_SMARTdenovo_nanopore_SRR17331923_plot -t png SMARTdenovo_nanop
 ```
 ![SRR17331923 assembly plot](./data/images/dot_SMARTdenovo_nanopore_SRR17331923_plot.png)
 
+---
+
 #### **HiFi reads**
 ```
 smartdenovo.pl -p SMARTdenovo_HIFI_SRR11560043 -t 8 -c 1 reads/HIFI/SRR11560043.fastq > SMARTdenovo_HIFI_SRR11560043.mak
 time make -f SMARTdenovo_HIFI_SRR11560043.mak
 ```
 
+```
+assembly-stats SMARTdenovo_HIFI_SRR11560043.dmo.cns
+```
 
-Assembly visualization
+stats for SMARTdenovo_HIFI_SRR11560043.dmo.cns  
+sum = 52432191, n = 142, ave = 369240.78, largest = 2693633  
+N50 = 761856, n = 19  
+N60 = 593944, n = 26  
+N70 = 404320, n = 37  
+N80 = 260712, n = 53  
+N90 = 144823, n = 80  
+N100 = 14062, n = 142  
+N_count = 0  
+Gaps = 0  
+
+**Assembly visualization**
 ```
 nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns -p SMARTdenovo_HIFI_SRR11560043_plot
 
 mummerplot -p dot_SMARTdenovo_HIFI_SRR11560043_plot -t png SMARTdenovo_HIFI_SRR11560043_plot.delta
 ```
-![SRR11560043 assembly plot](./data/images/dot_SMARTdenovo_nanopore_SRR17331923_plot.png)
+![SRR11560043 assembly plot](./data/images/dot_SMARTdenovo_HIFI_SRR11560043.png)
 
 ---
 
@@ -286,3 +317,7 @@ mummerplot -t png -p dot_Minimap2_HIFI_SRR11560043 Minimap2_HIFI_SRR11560043.del
 ```
 
 ![SRR11560043 assembly plot](./data/images/dot_Minimap2_HIFI_SRR11560043.png)
+
+---
+
+## **Polishing**
