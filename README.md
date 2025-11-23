@@ -102,6 +102,23 @@ Shasum:
 
 ---
 
+### 🧬 **Hi-C reads**
+
+Hi-C paired-end reads **SRR34411203** were downloaded from [NCBI](https://www.ncbi.nlm.nih.gov/sra/SRX29574603[accn]) on 18 Nov 2025:
+```
+prefetch SRR34411203
+fasterq-dump SRR34411203
+```
+
+Resulting files:
+`SRR34411203_1.fastq`
+`SRR34411203_1.fastq`
+
+Shasum:
+`73cabb6fe29875fffbada425544f662f07d33133 SRR34411203_1.fastq`
+`2c44505e853a3ebbf3becb5ea1ccf327a346b063 SRR34411203_2.fastq`
+
+
 ## 🧪 **Quality control**
 
 ### **HiFi reads**
@@ -324,7 +341,71 @@ mummerplot -t png -p dot_Minimap2_HIFI_SRR11560043 Minimap2_HIFI_SRR11560043.del
 ```
 quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "spades_illumina_pe, smart_nanopore, smart_hifi, miniasm_nanopore, miniasm_hifi" assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa
 ```
+
+After obtaining results I decided to use hifiasm tool to reassembly genome using Hi-Fi and Hi-C reads.
+
 ---
+
+### **Hifiasm**
+
+Assembly with Hi-C reads
+```
+mkdir Hifiasm_HIFI_SRR11560043_HIC_SRR34411203
+cd Hifiasm_HIFI_SRR11560043_HIC_SRR34411203/
+
+hifiasm -o Hifiasm_HIFI_SRR11560043_HIC_SRR34411203 -t 10 --h1 ../../reads/HIC/SRR34411203_1.fastq --h2 ../../reads/HIC/SRR34411203_2.fastq ../../reads/HIFI/SRR11560043.fastq
+```
+
+stats for Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.p_utg.gfa  
+sum = 0, n = 0, ave = 0.00, largest = 0  
+N50 = 0, n = 0  
+N60 = 0, n = 0  
+N70 = 0, n = 0  
+N80 = 0, n = 0  
+N90 = 0, n = 0  
+N100 = 0, n = 0  
+N_count = 0  
+Gaps = 0  
+
+
+Assembly without Hi-C reads
+```
+mkdir Hifiasm_HIFI_SRR11560043
+cd Hifiasm_HIFI_SRR11560043
+ifiasm -o Hifiasm_HIFI_SRR11560043 -t 18 ../../reads/HIFI/SRR11560043.fastq
+```
+
+
+### **Flye**
+
+#### **HiFi reads**
+
+```
+flye --pacbio-hifi reads/HIFI/SRR11560043.fastq --out-dir assembly/Flye_HIFI_SRR11560043 --threads 16
+```
+
+
 
 ## **Polishing**
 
+```
+mkdir miniasm_nanopore_SRR17331923_illumina_SRR11560048_corrected
+cd miniasm_nanopore_SRR17331923_illumina_SRR11560048_corrected/
+
+polca.sh -t 10 -a ../assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa -r '../reads/Illumina/SRR11560048_1.fastq ../reads/Illumina/SRR11560048_2.fastq'
+```
+
+```
+assembly-stats miniasm_nanopore_SRR17331923.fa.PolcaCorrected.fa
+```
+
+stats for miniasm_nanopore_SRR17331923.fa.PolcaCorrected.fa  
+sum = 65529296, n = 812, ave = 80701.10, largest = 2389792  
+N50 = 183053, n = 68  
+N60 = 106609, n = 115  
+N70 = 72827, n = 192  
+N80 = 52175, n = 299  
+N90 = 33121, n = 459  
+N100 = 2152, n = 812  
+N_count = 0  
+Gaps = 0  

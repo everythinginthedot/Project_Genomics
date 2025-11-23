@@ -1,0 +1,3 @@
+Assembly	# misassemblies	  # contig misassemblies	    # c. relocations	    # c. translocations	    # c. inversions	  # scaffold misassemblies	    # s. relocations	    # s. translocations	    # s. inversions	# misassembled contigs	Misassembled contigs length	# local misassemblies	# scaffold gap ext. mis.	# scaffold gap loc. mis.	# unaligned mis. contigs	# mismatches	# indels	    # indels (<= 5 bp)	    # indels (> 5 bp)	Indels length
+miniasm_nanopore	0	0	0	0	0	0	0	0	0	0	0	0	0	0	68	1548	68	68	0	97
+miniasm_nanopore_illumina	0	0	0	0	0	0	0	0	0	0	0	0	0	0	196	12230	847	834	13	1274

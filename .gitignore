@@ -1,6 +1,7 @@
 data/reads/HIFI
 data/reads/Illumina
 data/reads/Nanopore
+data/reads/HIC
 data/reads/test
 data/assembly
 data/ref

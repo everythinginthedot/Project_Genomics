@@ -1,0 +1,44 @@
+Assembly	miniasm_nanopore	miniasm_nanopore_illumina
+# contigs (>= 0 bp)	812	812
+# contigs (>= 1000 bp)	812	812
+# contigs (>= 5000 bp)	807	807
+# contigs (>= 10000 bp)	736	736
+# contigs (>= 25000 bp)	559	559
+# contigs (>= 50000 bp)	312	312
+Total length (>= 0 bp)	65527457	65529296
+Total length (>= 1000 bp)	65527457	65529296
+Total length (>= 5000 bp)	65508376	65510215
+Total length (>= 10000 bp)	64946245	64948079
+Total length (>= 25000 bp)	61902955	61904794
+Total length (>= 50000 bp)	53091890	53093756
+# contigs	812	812
+Largest contig	2389453	2389792
+Total length	65527457	65529296
+Reference length	40703773	40703773
+GC (%)	48.80	48.81
+Reference GC (%)	47.63	47.63
+N50	183020	183053
+NG50	466190	466198
+N75	61701	61701
+NG75	228607	228612
+L50	68	68
+LG50	24	24
+L75	241	241
+LG75	56	56
+# misassemblies	0	0
+# misassembled contigs	0	0
+Misassembled contigs length	0	0
+# local misassemblies	0	0
+# scaffold gap ext. mis.	0	0
+# scaffold gap loc. mis.	0	0
+# unaligned mis. contigs	68	196
+# unaligned contigs	686 + 126 part	577 + 235 part
+Unaligned length	65475084	64538253
+Genome fraction (%)	0.063	2.304
+Duplication ratio	2.032	1.057
+# N's per 100 kbp	0.00	0.00
+# mismatches per 100 kbp	6006.52	1304.04
+# indels per 100 kbp	263.85	90.31
+Largest alignment	1083	6644
+Total aligned length	52373	991043
+NGA50	-	-
