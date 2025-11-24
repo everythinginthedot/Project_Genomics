@@ -119,6 +119,13 @@ Shasum:
 `2c44505e853a3ebbf3becb5ea1ccf327a346b063 SRR34411203_2.fastq`
 
 
+### 🧬 **RNA-seq reads**
+
+https://www.ncbi.nlm.nih.gov/sra/SRX3446646[accn]
+
+
+---
+
 ## 🧪 **Quality control**
 
 ### **HiFi reads**
@@ -235,6 +242,7 @@ mummerplot -p dot_SMARTdenovo_nanopore_SRR17331923_plot -t png SMARTdenovo_nanop
 ---
 
 #### **HiFi reads**
+**SRR11560043**
 ```
 smartdenovo.pl -p SMARTdenovo_HIFI_SRR11560043 -t 8 -c 1 reads/HIFI/SRR11560043.fastq > SMARTdenovo_HIFI_SRR11560043.mak
 time make -f SMARTdenovo_HIFI_SRR11560043.mak
@@ -254,6 +262,17 @@ N90 = 144823, n = 80
 N100 = 14062, n = 142  
 N_count = 0  
 Gaps = 0  
+
+
+**SRR34390379**
+```
+smartdenovo.pl -p SMARTdenovo_HIFI_SRR34390379 -t 8 -c 1 reads/HIFI/SRR34390379.fastq > SMARTdenovo_HIFI_SRR34390379.mak
+time make -f SMARTdenovo_HIFI_SRR34390379.mak
+```
+
+```
+assembly-stats SMARTdenovo_HIFI_SRR34390379.dmo.cns
+```
 
 **Assembly visualization**
 ```
@@ -348,6 +367,7 @@ After obtaining results I decided to use hifiasm tool to reassembly genome using
 
 ### **Hifiasm**
 
+**SRR11560043**
 Assembly with Hi-C reads
 ```
 mkdir Hifiasm_HIFI_SRR11560043_HIC_SRR34411203
@@ -372,9 +392,48 @@ Assembly without Hi-C reads
 ```
 mkdir Hifiasm_HIFI_SRR11560043
 cd Hifiasm_HIFI_SRR11560043
-ifiasm -o Hifiasm_HIFI_SRR11560043 -t 18 ../../reads/HIFI/SRR11560043.fastq
+hifiasm -o Hifiasm_HIFI_SRR11560043 -t 18 ../../reads/HIFI/SRR11560043.fastq
 ```
 
+
+
+**SRR34390379**
+Assembly with Hi-C reads
+
+```
+hifiasm -o hifiasm_HIFI_SRR34390379_HIC_SRR34411203 -t 20 -l2 --h1 reads/HIC/SRR34411203_1.fastq --h2 reads/HIC/SRR34411203_2.fastq reads/HIFI/SRR34390379.fastq
+```
+
+Translating GFA to FASTA
+```
+awk '/^S/{print ">"$2"\n"$3}' hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa \
+    > hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
+```
+
+```
+assembly-stats hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.r_utg.fa 
+```
+
+stats for hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa  
+sum = 57801716, n = 162, ave = 356800.72, largest = 4963576  
+N50 = 3713043, n = 7  
+N60 = 3110550, n = 9  
+N70 = 2524926, n = 11  
+N80 = 2259883, n = 14  
+N90 = 686908, n = 17  
+N100 = 14705, n = 162  
+N_count = 0  
+Gaps = 0
+
+**Assembly visualization**  
+
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa -p hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot
+
+mummerplot -p dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot -t png hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.delta
+
+![SRR34390379 assembly plot](./data/images/dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.png)
+
+---
 
 ### **Flye**
 
