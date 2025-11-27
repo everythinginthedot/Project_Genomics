@@ -1,0 +1,21 @@
+Assembly	correctred	cor_scaffolded	cor_scaf_samba
+# misassemblies	21	21	21
+  # contig misassemblies	21	21	21
+    # c. relocations	21	21	21
+    # c. translocations	0	0	0
+    # c. inversions	0	0	0
+  # scaffold misassemblies	0	0	0
+    # s. relocations	0	0	0
+    # s. translocations	0	0	0
+    # s. inversions	0	0	0
+# misassembled contigs	11	11	11
+Misassembled contigs length	466007	466007	466007
+# local misassemblies	41	41	41
+# scaffold gap ext. mis.	0	0	0
+# scaffold gap loc. mis.	0	0	0
+# unaligned mis. contigs	12	12	12
+# mismatches	7748	7748	7748
+# indels	2404	2404	2404
+    # indels (<= 5 bp)	2149	2149	2149
+    # indels (> 5 bp)	255	255	255
+Indels length	5667	5667	5667

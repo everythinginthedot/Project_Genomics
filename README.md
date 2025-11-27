@@ -15,13 +15,22 @@ This project focuses on genome assembly, annotation and quality assessment of *R
 
 ### 🧬 **Reference genome**
 
-Reference genome of *Rhizoctonia solani* was downloaded using this command on the 29 Oct from the NCBI FTP:  
+Reference genome of *Rhizoctonia solani* AG-1 was downloaded using this command on the 29 Oct from the NCBI FTP:  
 ```
 wget "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/906/535/GCF_016906535.1_ASM1690653v1/GCF_016906535.1_ASM1690653v1_genomic.fna.gz"
 ```
 
 Resulting file:  `GCF_016906535.1_ASM1690653v1_genomic.fna`
 Shasum:  `87326de160c2cdf7436eef52a591c5abc4a1c1a8`
+
+
+Reference genome of *Rhizoctonia solani* AG-8 was downloaded using this command on the 24 Nov from the NCBI FTP:
+```
+wget 'https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/695/385/GCA_000695385.1_RSAG8-1.V1/GCA_000695385.1_RSAG8-1.V1_genomic.fna.gz'
+```
+
+Resulting file:  `GCA_000695385.1_RSAG8-1.V1_genomic.fna`
+Shasum:  `7ce7c33021e7f81b7c8d7967ac9946123a420476`
 
 ---
 
@@ -100,6 +109,22 @@ Shasum:
 - `400207f8cdc226f6040585bf38bd1d595a2cea36  SRR11560048_1.fastq`  
 - `a89e8f9008a3a575ab8d01ccedc519795f22bdff  SRR11560048_2.fastq`
 
+
+Illumina (HiSeq 2000) paired-end reads **SRR8926039** were downloaded from 
+[NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR8926039&display=metadata) on 24 Nov 2025:
+```
+prefetch SRR8926039
+fasterq-dump SRR8926039
+```
+
+Resulting files:
+`SRR8926039_1.fastq`
+`SRR8926039_2.fastq`
+
+Shasum:
+- `b016004be928755aacec34110048077a57d71ee3  SRR8926039_1.fastq`
+- `cfc0f5df357dbf21b88dcf529207fb79e5d801ef  SRR8926039_2.fastq`
+
 ---
 
 ### 🧬 **Hi-C reads**
@@ -173,7 +198,55 @@ filtlong --min_length 1000 --keep_percent 90 SRR[number]_trimmed.fq > SRR[number
 
 ### **Illumina**
 
-#### **FastQC**
+**SRR11560048**
+
+#### **Preliminary FastQC**
+
+```
+fastqc SRR11560048_1.fastq
+fastqc SRR11560048_2.fastq
+```
+Reports are stored in data/reads/FASTQC_REPORTS   
+Reads were already preprocessed by authors  
+
+**SRR8926039**
+
+#### **Preliminary FastQC**
+
+```
+fastqc SRR8926039_1.fastq
+fastqc SRR8926039_2.fastq
+```
+Reports are stored in data/reads/FASTQC_REPORTS  
+
+#### **Fastp**
+
+After obtaining reports preprocessing using Fastp was performed
+
+```
+fastp \
+  -i SRR8926039_1.fastq \
+  -I SRR8926039_2.fastq \
+  -o SRR8926039_1.clean.fastq.gz \
+  -O SRR8926039_2.clean.fastq.gz \
+  --detect_adapter_for_pe \
+  --trim_front1 0 \
+  --trim_tail1 0 \
+  --cut_tail \
+  --cut_window_size 4 \
+  --cut_mean_quality 20 \
+  --qualified_quality_phred 15 \
+  --thread 16
+```
+Fastp report is stored in data/reads/FASTP_REPORTS
+
+#### **FastQC after preprocessing**
+
+```
+fastqc SRR8926039_1.clean.fastq
+fastqc SRR8926039_2.clean.fastq
+```
+Reports are stored in data/reads/FASTQC_REPORTS 
 
 ---
 
@@ -205,6 +278,13 @@ nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/spade
 mummerplot -p dot_nucmer_spades_illumina_SRR11560048 -t png nucmer_spades_illumina_SRR11560048.delta
 ```
 ![SRR11560048 assembly plot](./data/images/dot_nucmer_spades_illumina_SRR11560048.png)
+
+
+**Hybrid assembly**
+
+```
+spades.py -1 ../reads/Illumina/SRR8926039_1.clean.fastq -2 ../reads/Illumina/SRR8926039_2.clean.fastq --pacbio ../reads/HIFI/SRR34390379.fastq -o Hybrid_HIFI_SRR34390379_Illumina_SRR8926039 --isolate
+```
 
 ---
 
@@ -425,6 +505,35 @@ N100 = 14705, n = 162
 N_count = 0  
 Gaps = 0
 
+
+**ALTERNATIVE: SRR34390379 with option --hg-size 41m**
+```
+hifiasm -o HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203 -t 20 --hg-size 41m -l2 --h1 reads/HIC/SRR34411203_1.fastq --h2 reads/HIC/SRR34411203
+```
+
+Translating GFA to FASTA
+```
+awk '/^S/{print ">"$2"\n"$3}' HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa \
+    > HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
+```
+
+```
+assembly-stats HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa 
+```
+
+stats for HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa  
+sum = 57829822, n = 164, ave = 352620.87, largest = 4963576  
+N50 = 3713043, n = 7  
+N60 = 3110550, n = 9  
+N70 = 2524926, n = 11  
+N80 = 2259883, n = 14  
+N90 = 686908, n = 17  
+N100 = 14705, n = 164  
+N_count = 0  
+Gaps = 0  
+
+
+
 **Assembly visualization**  
 
 nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa -p hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot
@@ -447,9 +556,10 @@ flye --pacbio-hifi reads/HIFI/SRR11560043.fastq --out-dir assembly/Flye_HIFI_SRR
 
 ## **Polishing**
 
+### **Nanopore SRR17331923 assembly using Illumina SRR11560048 reads**
 ```
-mkdir miniasm_nanopore_SRR17331923_illumina_SRR11560048_corrected
-cd miniasm_nanopore_SRR17331923_illumina_SRR11560048_corrected/
+mkdir CORRECTED_Masurca_miniasm_nanopore_SRR17331923_illumina_SRR11560048
+cd CORRECTED_Masurca_miniasm_nanopore_SRR17331923_illumina_SRR11560048/
 
 polca.sh -t 10 -a ../assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa -r '../reads/Illumina/SRR11560048_1.fastq ../reads/Illumina/SRR11560048_2.fastq'
 ```
@@ -468,3 +578,210 @@ N90 = 33121, n = 459
 N100 = 2152, n = 812  
 N_count = 0  
 Gaps = 0  
+
+---
+
+### **HiFi SRR34390379 + Hi-C SRR34411203 using Illumina SRR8926039 reads**
+
+```
+mkdir CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203_illumina_SRR8926039
+cd CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203_illumina_SRR8926039
+```
+
+```
+polca.sh -t 10 -a ../Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa -r '../../reads/Illumina/SRR8926039_1.clean.fastq ../../reads/Illumina/SRR8926039_2.clean.fastq'
+```
+
+
+**Comparing hifiasm assemblies after polishing**
+
+```
+quast -r ref/GCA_000695385.1_RSAG8-1.V1_genomic.fna -l "hifiasm_hifi_SRR34390379, hifiasm_hifi_SRR34390379_corrected" assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa assembly/CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa 
+```
+
+
+
+## **Scaffolding**
+
+**Chromosome scaffolder**
+```
+chromosome_scaffolder.sh -r ../../ref/GCF_016906535.1_ASM1690653v1_genomic.fna -q ../../assembly/CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa -t 16 -nb -v
+```
+
+```
+assembly-stats GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa 
+```
+
+stats for GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa  
+sum = 57745292, n = 161, ave = 358666.41, largest = 4962671  
+N50 = 3711849, n = 7  
+N60 = 3109985, n = 9  
+N70 = 2524214, n = 11  
+N80 = 2259285, n = 14  
+N90 = 686804, n = 17  
+N100 = 14682, n = 161  
+N_count = 0  
+Gaps = 0  
+
+**SAMBA**
+
+```
+mkdir Samba_Scaffolded_CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203
+cd Samba_Scaffolded_CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/
+```
+
+```
+samba.sh -r ../Scaffolded_CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa -q ../../reads/Nanopore/SRR17331923_clean.fastq -d ont -t 16
+```
+
+```
+assembly-stats GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.scaffolds.fa
+```
+
+stats for GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.scaffolds.fa
+sum = 57745292, n = 161, ave = 358666.41, largest = 4962671  
+N50 = 3711849, n = 7  
+N60 = 3109985, n = 9  
+N70 = 2524214, n = 11  
+N80 = 2259285, n = 14  
+N90 = 686804, n = 17  
+N100 = 14682, n = 161  
+N_count = 0  
+Gaps = 0  
+
+
+
+**Quast**
+After using chromosome scaffolder and Samba the quast comparison was performed
+
+```
+quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "correctred, cor_scaffolded, cor_scaf_samba" assembly/
+```
+Folder: results_2025_11_27_16_51_02
+
+Each of the instruments had not got any significant impact on the assembly.
+
+
+## **Bandage**
+
+The Bandage app was used to illustrate genome assembly
+
+*hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa*
+![Hifiasm SRR34390379 assembly](./data/images/Bandage_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa_2.png)
+
+
+
+
+
+
+
+
+
+
+# **Genome Annotation**
+
+## **Repeat masking**
+
+Installation of TETools docker image
+
+```
+curl -sSLO https://github.com/Dfam-consortium/TETools/raw/master/dfam-tetools.sh
+chmod +x dfam-tetools.sh
+./dfam-tetools.sh
+```
+
+### **BuildDatabase**
+
+```
+BuildDatabase -name R.solani_repeats_db ../assembly/CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa 
+```
+
+Resulting files:   
+├── R.solani_repeats_db.nhr  
+├── R.solani_repeats_db.nin  
+├── R.solani_repeats_db.njs  
+├── R.solani_repeats_db.nnd  
+├── R.solani_repeats_db.nni  
+├── R.solani_repeats_db.nog  
+├── R.solani_repeats_db.nsq  
+└── R.solani_repeats_db.translation  
+
+### **RepeatModeler**
+
+```
+RepeatModeler -database R.solani_repeats_db -threads 16 -LTRStruct
+```
+
+### **RepeatMasker**
+
+```
+RepeatMasker  -pa 16  -lib RM_300402.ThuNov271945482025/consensi.fa.classified  -gff  -xsmall  -no_is  ../assembly/C
+ORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa
+```
+
+```
+grep "bases masked" hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.tbl 
+```
+
+```
+cat hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.tbl
+```
+
+==================================================   
+file name: hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa  
+sequences:           162  
+total length:   57788712 bp  (57788712 bp excl N/X-runs)  
+GC level:         47.57 %  
+bases masked:   14351195 bp ( 24.83 %)  
+==================================================  
+               number of      length   percentage  
+               elements*    occupied  of sequence  
+--------------------------------------------------  
+Retroelements         2371      4723207 bp    8.17 %  
+   SINEs:                0            0 bp    0.00 %  
+   Penelope:            12        10679 bp    0.02 %  
+   LINEs:              526       267600 bp    0.46 %  
+    CRE/SLACS            0            0 bp    0.00 %  
+     L2/CR1/Rex          0            0 bp    0.00 %  
+     R1/LOA/Jockey     279       131874 bp    0.23 %  
+     R2/R4/NeSL          0            0 bp    0.00 %  
+     RTE/Bov-B           0            0 bp    0.00 %  
+     L1/CIN4             0            0 bp    0.00 %  
+   LTR elements:      1833      4444928 bp    7.69 %  
+     BEL/Pao             0            0 bp    0.00 %  
+     Ty1/Copia         157       144869 bp    0.25 %  
+     Gypsy/DIRS1      1614      4233459 bp    7.33 %  
+       Retroviral       62        66600 bp    0.12 %  
+  
+DNA transposons        942       764480 bp    1.32 %  
+   hobo-Activator       90        67188 bp    0.12 %  
+   Tc1-IS630-Pogo      117        60754 bp    0.11 %  
+   En-Spm                0            0 bp    0.00 %  
+   MULE-MuDR             0            0 bp    0.00 %  
+   PiggyBac              0            0 bp    0.00 %  
+   Tourist/Harbinger    35        13732 bp    0.02 %  
+   Other (Mirage,        0            0 bp    0.00 %  
+    P-element, Transib)  
+
+Rolling-circles        170        46155 bp    0.08 %  
+
+Unclassified:        14194      8140514 bp   14.09 %  
+
+Total interspersed repeats:    13628201 bp   23.58 %   
+
+
+Small RNA:             119       506887 bp    0.88 %  
+
+Satellites:              0            0 bp    0.00 %  
+Simple repeats:       3197       147981 bp    0.26 %  
+Low complexity:        440        21971 bp    0.04 %  
+==================================================  
+
+* most repeats fragmented by insertions or deletions  
+  have been counted as one element  
+                                                      
+
+RepeatMasker version 4.2.2 , default mode                                           
+run with rmblastn version 2.14.1+  
+The query was compared to classified sequences in ".../consensi.fa.classified"  
+FamDB:   

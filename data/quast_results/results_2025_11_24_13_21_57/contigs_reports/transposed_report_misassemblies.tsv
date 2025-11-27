@@ -1,0 +1,3 @@
+Assembly	# misassemblies	  # contig misassemblies	    # c. relocations	    # c. translocations	    # c. inversions	  # scaffold misassemblies	    # s. relocations	    # s. translocations	    # s. inversions	# misassembled contigs	Misassembled contigs length	# local misassemblies	# scaffold gap ext. mis.	# scaffold gap loc. mis.	# unaligned mis. contigs	# mismatches	# indels	    # indels (<= 5 bp)	    # indels (> 5 bp)	Indels length
+hifiasm_hifi_SRR34390379	10264	10264	1556	8515	193	0	0	0	0	27	53090606	12399	0	0	135	594615	39360	25309	14051	527909
+hifiasm_hifi_SRR34390379_corrected	10973	10973	1685	9081	207	0	0	0	0	34	53566274	12173	0	0	128	477401	37153	23050	14103	547124

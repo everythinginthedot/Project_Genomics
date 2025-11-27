@@ -1,0 +1,44 @@
+Assembly	correctred	cor_scaffolded	cor_scaf_samba
+# contigs (>= 0 bp)	162	161	161
+# contigs (>= 1000 bp)	162	161	161
+# contigs (>= 5000 bp)	162	161	161
+# contigs (>= 10000 bp)	162	161	161
+# contigs (>= 25000 bp)	121	120	120
+# contigs (>= 50000 bp)	26	26	26
+Total length (>= 0 bp)	57788712	57745292	57745292
+Total length (>= 1000 bp)	57788712	57745292	57745292
+Total length (>= 5000 bp)	57788712	57745292	57745292
+Total length (>= 10000 bp)	57788712	57745292	57745292
+Total length (>= 25000 bp)	56904437	56861017	56861017
+Total length (>= 50000 bp)	53652365	53652365	53652365
+# contigs	162	161	161
+Largest contig	4962671	4962671	4962671
+Total length	57788712	57745292	57745292
+Reference length	40703773	40703773	40703773
+GC (%)	47.57	47.58	47.58
+Reference GC (%)	47.63	47.63	47.63
+N50	3711849	3711849	3711849
+NG50	4100071	4100071	4100071
+N75	2349775	2349775	2349775
+NG75	3330951	3330951	3330951
+L50	7	7	7
+LG50	5	5	5
+L75	12	12	12
+LG75	8	8	8
+# misassemblies	21	21	21
+# misassembled contigs	11	11	11
+Misassembled contigs length	466007	466007	466007
+# local misassemblies	41	41	41
+# scaffold gap ext. mis.	0	0	0
+# scaffold gap loc. mis.	0	0	0
+# unaligned mis. contigs	12	12	12
+# unaligned contigs	133 + 29 part	132 + 29 part	132 + 29 part
+Unaligned length	57476003	57432583	57432583
+Genome fraction (%)	0.060	0.060	0.060
+Duplication ratio	12.732	12.732	12.732
+# N's per 100 kbp	0.00	0.00	0.00
+# mismatches per 100 kbp	31547.23	31547.23	31547.23
+# indels per 100 kbp	9788.27	9788.27	9788.27
+Largest alignment	12574	12574	12574
+Total aligned length	312709	312709	312709
+NGA50	-	-	-

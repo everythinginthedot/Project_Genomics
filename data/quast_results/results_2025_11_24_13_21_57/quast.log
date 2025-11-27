@@ -1,0 +1,136 @@
+/home/genomika25/miniconda3/envs/quast/bin/quast -r ref/GCA_000695385.1_RSAG8-1.V1_genomic.fna -l hifiasm_hifi_SRR34390379, hifiasm_hifi_SRR34390379_corrected assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa assembly/CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa
+
+Version: 5.0.2
+
+System information:
+  OS: Linux-6.8.0-87-generic-x86_64-with-debian-trixie-sid (linux_64)
+  Python version: 3.6.13
+  CPUs number: 64
+
+Started: 2025-11-24 13:21:57
+
+Logging to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/quast.log
+NOTICE: Maximum number of threads is set to 16 (use --threads option to set it manually)
+
+CWD: /home/genomika25/studenci/artale/Project_Genomics/data
+Main parameters: 
+  MODE: default, threads: 16, minimum contig length: 500, minimum alignment length: 65, \
+  ambiguity: one, threshold for extensive misassembly size: 1000
+
+Reference:
+  /home/genomika25/studenci/artale/Project_Genomics/data/ref/GCA_000695385.1_RSAG8-1.V1_genomic.fna ==> GCA_000695385.1_RSAG8_1.V1_genomic
+
+Contigs:
+  Pre-processing...
+  1  assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa ==> hifiasm_hifi_SRR34390379
+  2  assembly/CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa ==> hifiasm_hifi_SRR34390379_corrected
+
+2025-11-24 13:22:01
+Running Basic statistics processor...
+  Reference genome:
+    GCA_000695385.1_RSAG8_1.V1_genomic.fna, length = 39822884, num fragments = 857, GC % = 48.83
+WARNING:   Reference genome is fragmented. You may consider rerunning QUAST using --fragmented option. QUAST will try to detect misassemblies caused by the fragmentation and mark them fake (will be excluded from # misassemblies).
+  Contig files: 
+    1  hifiasm_hifi_SRR34390379
+    2  hifiasm_hifi_SRR34390379_corrected
+  Calculating N50 and L50...
+    1  hifiasm_hifi_SRR34390379, N50 = 3713043, L50 = 7, Total length = 57801716, GC % = 47.54, # N's per 100 kbp =  0.00
+    2  hifiasm_hifi_SRR34390379_corrected, N50 = 3711849, L50 = 7, Total length = 57788712, GC % = 47.57, # N's per 100 kbp =  0.00
+  Drawing Nx plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/basic_stats/Nx_plot.pdf
+  Drawing NGx plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/basic_stats/NGx_plot.pdf
+  Drawing cumulative plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/basic_stats/cumulative_plot.pdf
+  Drawing GC content plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/basic_stats/GC_content_plot.pdf
+  Drawing hifiasm_hifi_SRR34390379 GC content plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/basic_stats/hifiasm_hifi_SRR34390379_GC_content_plot.pdf
+  Drawing hifiasm_hifi_SRR34390379_corrected GC content plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/basic_stats/hifiasm_hifi_SRR34390379_corrected_GC_content_plot.pdf
+Done.
+
+2025-11-24 13:22:10
+Running Contig analyzer...
+  1  hifiasm_hifi_SRR34390379
+  1  Logging to files /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/contigs_reports/contigs_report_hifiasm_hifi_SRR34390379.stdout and contigs_report_hifiasm_hifi_SRR34390379.stderr...
+  1  Aligning contigs to the reference
+  1  /home/genomika25/miniconda3/envs/quast/lib/python3.6/site-packages/quast_libs/minimap2/minimap2 \
+     -c -x asm5 -B5 -O4,16 --no-long-join -r 85 -N 50 -s 65 -z 200 --mask-level 0.9 \
+     --min-occ 200 -g 2500 --score-N 2 --cs -t 8 quast_results/results_2025_11_24_13_21_57/quast_corrected_input/GCA_000695385.1_RSAG8_1.V1_genomic.fna \
+     quast_results/results_2025_11_24_13_21_57/quast_corrected_input/hifiasm_hifi_SRR34390379.fa \
+     > quast_results/results_2025_11_24_13_21_57/contigs_reports/minimap_output/hifiasm_hifi_SRR34390379.coords_tmp \
+     2>> quast_results/results_2025_11_24_13_21_57/contigs_reports/contigs_report_hifiasm_hifi_SRR34390379.stderr
+  2  hifiasm_hifi_SRR34390379_corrected
+  2  Logging to files /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/contigs_reports/contigs_report_hifiasm_hifi_SRR34390379_corrected.stdout and contigs_report_hifiasm_hifi_SRR34390379_corrected.stderr...
+  2  Aligning contigs to the reference
+  2  /home/genomika25/miniconda3/envs/quast/lib/python3.6/site-packages/quast_libs/minimap2/minimap2 \
+     -c -x asm5 -B5 -O4,16 --no-long-join -r 85 -N 50 -s 65 -z 200 --mask-level 0.9 \
+     --min-occ 200 -g 2500 --score-N 2 --cs -t 8 quast_results/results_2025_11_24_13_21_57/quast_corrected_input/GCA_000695385.1_RSAG8_1.V1_genomic.fna \
+     quast_results/results_2025_11_24_13_21_57/quast_corrected_input/hifiasm_hifi_SRR34390379_corrected.fa \
+     > quast_results/results_2025_11_24_13_21_57/contigs_reports/minimap_output/hifiasm_hifi_SRR34390379_corrected.coords_tmp \
+     2>> quast_results/results_2025_11_24_13_21_57/contigs_reports/contigs_report_hifiasm_hifi_SRR34390379_corrected.stderr
+  2  Analysis is finished.
+
+  1  Analysis is finished.
+
+  Creating total report...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/contigs_reports/misassemblies_report.txt, misassemblies_report.tsv, and misassemblies_report.tex
+  Transposed version of total report...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/contigs_reports/transposed_report_misassemblies.txt, transposed_report_misassemblies.tsv, and transposed_report_misassemblies.tex
+  Creating total report...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/contigs_reports/unaligned_report.txt, unaligned_report.tsv, and unaligned_report.tex
+  Drawing misassemblies by types plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/contigs_reports/misassemblies_plot.pdf
+  Drawing misassemblies FRCurve plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/contigs_reports/misassemblies_frcurve_plot.pdf
+Done.
+
+2025-11-24 13:42:46
+Running NA-NGA calculation...
+  1  hifiasm_hifi_SRR34390379, Largest alignment = 119480, NA50 = 801, NGA50 = 5280, LA50 = 6383, LGA50 = 1390
+  2  hifiasm_hifi_SRR34390379_corrected, Largest alignment = 118914, NA50 = 1053, NGA50 = 5936, LA50 = 5352, LGA50 = 1318
+  Drawing cumulative plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/aligned_stats/cumulative_plot.pdf
+  Drawing NAx plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/aligned_stats/NAx_plot.pdf
+  Drawing NGAx plot...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/aligned_stats/NGAx_plot.pdf
+Done.
+
+2025-11-24 13:42:48
+Running Genome analyzer...
+  NOTICE: No file with genomic features were provided. Use the --features option if you want to specify it.
+
+  NOTICE: No file with operons were provided. Use the -O option if you want to specify it.
+  1  hifiasm_hifi_SRR34390379
+  2  hifiasm_hifi_SRR34390379_corrected
+  1  Analysis is finished.
+  2  Analysis is finished.
+  Drawing Genome fraction, % histogram...
+    saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/genome_stats/genome_fraction_histogram.pdf
+Done.
+
+NOTICE: Genes are not predicted by default. Use --gene-finding or --glimmer option to enable it.
+
+2025-11-24 13:43:02
+Creating large visual summaries...
+This may take a while: press Ctrl-C to skip this step..
+  1 of 2: Creating Icarus viewers...
+  2 of 2: Creating PDF with all tables and plots...
+Done
+
+2025-11-24 13:43:45
+RESULTS:
+  Text versions of total report are saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/report.txt, report.tsv, and report.tex
+  Text versions of transposed total report are saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/transposed_report.txt, transposed_report.tsv, and transposed_report.tex
+  HTML version (interactive tables and plots) is saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/report.html
+  PDF version (tables and plots) is saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/report.pdf
+  Icarus (contig browser) is saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/icarus.html
+  Log is saved to /home/genomika25/studenci/artale/Project_Genomics/data/quast_results/results_2025_11_24_13_21_57/quast.log
+
+Finished: 2025-11-24 13:43:45
+Elapsed time: 0:21:47.969760
+NOTICEs: 4; WARNINGs: 1; non-fatal ERRORs: 0
+
+Thank you for using QUAST!

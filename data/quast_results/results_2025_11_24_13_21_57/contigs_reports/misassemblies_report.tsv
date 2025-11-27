@@ -1,0 +1,21 @@
+Assembly	hifiasm_hifi_SRR34390379	hifiasm_hifi_SRR34390379_corrected
+# misassemblies	10264	10973
+  # contig misassemblies	10264	10973
+    # c. relocations	1556	1685
+    # c. translocations	8515	9081
+    # c. inversions	193	207
+  # scaffold misassemblies	0	0
+    # s. relocations	0	0
+    # s. translocations	0	0
+    # s. inversions	0	0
+# misassembled contigs	27	34
+Misassembled contigs length	53090606	53566274
+# local misassemblies	12399	12173
+# scaffold gap ext. mis.	0	0
+# scaffold gap loc. mis.	0	0
+# unaligned mis. contigs	135	128
+# mismatches	594615	477401
+# indels	39360	37153
+    # indels (<= 5 bp)	25309	23050
+    # indels (> 5 bp)	14051	14103
+Indels length	527909	547124

@@ -1,0 +1,49 @@
+Assembly	hifiasm_hifi_SRR34390379	hifiasm_hifi_SRR34390379_corrected
+# contigs (>= 0 bp)	162	162
+# contigs (>= 1000 bp)	162	162
+# contigs (>= 5000 bp)	162	162
+# contigs (>= 10000 bp)	162	162
+# contigs (>= 25000 bp)	121	121
+# contigs (>= 50000 bp)	26	26
+Total length (>= 0 bp)	57801716	57788712
+Total length (>= 1000 bp)	57801716	57788712
+Total length (>= 5000 bp)	57801716	57788712
+Total length (>= 10000 bp)	57801716	57788712
+Total length (>= 25000 bp)	56917073	56904437
+Total length (>= 50000 bp)	53662626	53652365
+# contigs	162	162
+Largest contig	4963576	4962671
+Total length	57801716	57788712
+Reference length	39822884	39822884
+GC (%)	47.54	47.57
+Reference GC (%)	48.83	48.83
+N50	3713043	3711849
+NG50	4100706	4100071
+N75	2349902	2349775
+NG75	3331570	3330951
+L50	7	7
+LG50	5	5
+L75	12	12
+LG75	8	8
+# misassemblies	10264	10973
+# misassembled contigs	27	34
+Misassembled contigs length	53090606	53566274
+# local misassemblies	12399	12173
+# scaffold gap ext. mis.	0	0
+# scaffold gap loc. mis.	0	0
+# unaligned mis. contigs	135	128
+# unaligned contigs	0 + 162 part	0 + 162 part
+Unaligned length	25378093	24029156
+Genome fraction (%)	72.631	75.491
+Duplication ratio	1.291	1.293
+# N's per 100 kbp	0.00	0.00
+# mismatches per 100 kbp	2367.05	1828.43
+# indels per 100 kbp	156.68	142.30
+Largest alignment	119480	118914
+Total aligned length	32148460	33450384
+NA50	801	1053
+NGA50	5280	5936
+NGA75	620	860
+LA50	6383	5352
+LGA50	1390	1318
+LGA75	7754	6372
