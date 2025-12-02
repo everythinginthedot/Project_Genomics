@@ -720,23 +720,19 @@ ORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR343903
 ```
 
 ```
-grep "bases masked" hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.tbl 
-```
-
-```
 cat hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.tbl
 ```
 
-==================================================   
+
 file name: hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa  
 sequences:           162  
 total length:   57788712 bp  (57788712 bp excl N/X-runs)  
 GC level:         47.57 %  
 bases masked:   14351195 bp ( 24.83 %)  
-==================================================  
+'=================================================='  
                number of      length   percentage  
                elements*    occupied  of sequence  
---------------------------------------------------  
+'--------------------------------------------------'  
 Retroelements         2371      4723207 bp    8.17 %  
    SINEs:                0            0 bp    0.00 %  
    Penelope:            12        10679 bp    0.02 %  
@@ -775,13 +771,77 @@ Small RNA:             119       506887 bp    0.88 %
 Satellites:              0            0 bp    0.00 %  
 Simple repeats:       3197       147981 bp    0.26 %  
 Low complexity:        440        21971 bp    0.04 %  
-==================================================  
+'=================================================='  
 
-* most repeats fragmented by insertions or deletions  
-  have been counted as one element  
-                                                      
 
-RepeatMasker version 4.2.2 , default mode                                           
-run with rmblastn version 2.14.1+  
-The query was compared to classified sequences in ".../consensi.fa.classified"  
-FamDB:   
+## **BRAKER**
+
+### **Protein dataset**
+
+First dataset was downloadaed from NCBI on 28 Nov 2025 using the following command:
+```
+datasets download genome taxon "1287688" --include protein --filename rhizo.zip
+unzip rhizo.zip
+```
+
+Shasum:  
+161a5d20cd01d530ce73c96ab031e627  protein.faa
+
+
+Another protein database was downloaded from [OrthoDB](https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/) 11 on 28 Nov 2025 using the following command:
+```
+wget "https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/Fungi.fa.gz"
+```
+
+### **RNA-seq**
+
+```
+prefetch SRR34414162
+fasterq-dump SRR34414162
+```
+
+Resulting files:  
+8b46774d280af869e7d5de25e79a59171315793c  SRR34414162_1.fastq  
+10c124ccd3054d53f8233f786ba3b7fb5e5cab3c  SRR34414162_2.fastq  
+
+#### **Aligning with Hisat2**
+
+```
+hisat2-build hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked genome_index
+```
+
+.
+├── genome_index.1.ht2  
+├── genome_index.2.ht2  
+├── genome_index.3.ht2  
+├── genome_index.4.ht2  
+├── genome_index.5.ht2  
+├── genome_index.6.ht2  
+├── genome_index.7.ht2  
+├── genome_index.8.ht2  
+└── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked  
+
+```
+hisat2 -p 16 --dta -x ../genome/genome_index -1 SRR34414162_1.fastq  -2 SRR34414162_2.fastq | samtools sort -@ 16 -o rnaseq_SRR34414162.sorted.bam
+samtools index rnaseq_SRR34414162.sorted.bam 
+```
+
+.  
+├── rnaseq_SRR34414162.sorted.bam  
+├── rnaseq_SRR34414162.sorted.bam.bai  
+├── SRR34414162  
+│   └── SRR34414162.sra  
+├── SRR34414162_1.fastq  
+└── SRR34414162_2.fastq  
+
+
+### **BRAKER3 annotation**
+
+```
+braker.pl --genome genome/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked --prot_seq proteins/protein.faa --bam rnaseq/rnaseq_SRR34414162.sorted.bam --threads 16 --workingdir ./braker_rna_protein
+```
+
+Using OrthoDB11 proteins
+```
+braker.pl --genome genome/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked --prot_seq proteins/OrthoDB11/Fungi.fa --bam rnaseq/rnaseq_SRR34414162.sorted.bam --threads 16 --workingdir ./braker_rna_protein_2 &
+```

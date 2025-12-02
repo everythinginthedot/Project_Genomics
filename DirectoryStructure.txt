@@ -1,0 +1,567 @@
+.
+├── data
+│   ├── assembly
+│   │   ├── CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203
+│   │   │   ├── bwa.err
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.alignSorted.bam
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.alignSorted.bam.bai
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.batches
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.bwa.amb
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.bwa.ann
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.bwa.bwt
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.bwa.pac
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.bwa.sa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.fix.success
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.index.success
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.map.success
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.names
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.cat.gz
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.out
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.out.gff
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.tbl
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.report
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.report.success
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.sort.success
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.unSorted.bam
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.vcf
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.vc.success
+│   │   │   └── samtools.err
+│   │   ├── CORRECTED_Masurca_miniasm_nanopore_SRR17331923_illumina_SRR11560048
+│   │   │   ├── bwa.err
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.alignSorted.bam
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.alignSorted.bam.bai
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.batches
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.bwa.amb
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.bwa.ann
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.bwa.bwt
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.bwa.pac
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.bwa.sa
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.fix.success
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.index.success
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.map.success
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.names
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.PolcaCorrected.fa
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.report
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.report.success
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.sort.success
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.unSorted.bam
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.vcf
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.vc.success
+│   │   │   └── samtools.err
+│   │   ├── Flye_HIFI_SRR11560043
+│   │   │   ├── 00-assembly
+│   │   │   ├── flye.log
+│   │   │   └── params.json
+│   │   ├── HG_SIZE_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.ec.bin
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap1.p_ctg.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap1.p_ctg.lowQ.bed
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap1.p_ctg.noseq.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap2.p_ctg.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap2.p_ctg.lowQ.bed
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap2.p_ctg.noseq.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.lk.bin
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.lowQ.bed
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.noseq.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_utg.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_utg.lowQ.bed
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_utg.noseq.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.r_utg.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.r_utg.lowQ.bed
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.r_utg.noseq.gfa
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.tlb.bin
+│   │   │   ├── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.ovlp.reverse.bin
+│   │   │   └── HG_SIZE_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.ovlp.source.bin
+│   │   ├── Hifiasm_HIFI_SRR11560043
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.hap1.p_ctg.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.hap1.p_ctg.lowQ.bed
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.hap1.p_ctg.noseq.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.hap2.p_ctg.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.hap2.p_ctg.lowQ.bed
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.hap2.p_ctg.noseq.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.p_ctg.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.p_ctg.lowQ.bed
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.p_ctg.noseq.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.p_utg.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.p_utg.lowQ.bed
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.p_utg.noseq.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.r_utg.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.r_utg.lowQ.bed
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.bp.r_utg.noseq.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.ec.bin
+│   │   │   ├── Hifiasm_HIFI_SRR11560043.ovlp.reverse.bin
+│   │   │   └── Hifiasm_HIFI_SRR11560043.ovlp.source.bin
+│   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.ec.bin
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.lk.bin
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.p_ctg.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.p_ctg.lowQ.bed
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.p_ctg.noseq.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.p_utg.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.p_utg.lowQ.bed
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.p_utg.noseq.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.r_utg.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.r_utg.lowQ.bed
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.r_utg.noseq.gfa
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.tlb.bin
+│   │   │   ├── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.ovlp.reverse.bin
+│   │   │   └── Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.ovlp.source.bin
+│   │   ├── Hifiasm_HIFI_SRR34390379_HIC_SRR34411203
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.ec.bin
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap1.p_ctg.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap1.p_ctg.lowQ.bed
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap1.p_ctg.noseq.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap2.p_ctg.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap2.p_ctg.lowQ.bed
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.hap2.p_ctg.noseq.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.lk.bin
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.fai
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.lowQ.bed
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.noseq.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_utg.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_utg.lowQ.bed
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_utg.noseq.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.r_utg.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.r_utg.lowQ.bed
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.r_utg.noseq.gfa
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.tlb.bin
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.ovlp.reverse.bin
+│   │   │   └── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.ovlp.source.bin
+│   │   ├── Hybrid_HIFI_SRR34390379_Illumina_SRR8926039
+│   │   │   ├── dataset.info
+│   │   │   ├── input_dataset.yaml
+│   │   │   ├── K21
+│   │   │   ├── K33
+│   │   │   ├── K55
+│   │   │   ├── misc
+│   │   │   ├── params.txt
+│   │   │   ├── pipeline_state
+│   │   │   ├── run_spades.sh
+│   │   │   ├── run_spades.yaml
+│   │   │   ├── spades.log
+│   │   │   └── tmp
+│   │   ├── Minimap2_HIFI_SRR11560043
+│   │   │   ├── miniasm_HIFI_SRR11560043.fa
+│   │   │   ├── miniasm_HIFI_SRR11560043.gfa
+│   │   │   └── Minimap2_HIFI_SRR11560043.paf.gz
+│   │   ├── Minimap2_nanopore_SRR17331923
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa
+│   │   │   ├── miniasm_nanopore_SRR17331923.fa.fai
+│   │   │   ├── miniasm_nanopore_SRR17331923.gfa
+│   │   │   └── Minimap2_nanopore_SRR17331923.paf.gz
+│   │   ├── Samba_Scaffolded_CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.ont.coords
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.ont.links.txt
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.ont.paf
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.ont.patches.coords
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.ont.patches.links.txt
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.ont.patches.paf
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.ont.patches.polish.fa
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.ont.patches.uniq.links.txt
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.ont.split.paf
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.repeats.txt
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.scaffolds.all.rejoin.fa
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.scaffolds.fa
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.split.fa
+│   │   │   ├── minimap.err
+│   │   │   ├── scaffold_align_patches.success
+│   │   │   ├── scaffold_align.success
+│   │   │   ├── scaffold_deduplicate.success
+│   │   │   ├── scaffold_filter.success
+│   │   │   ├── scaffold_links.success
+│   │   │   ├── scaffold_reads.success
+│   │   │   ├── scaffold_scaffold.success
+│   │   │   └── scaffold_split.success
+│   │   ├── Scaffolded_CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.align2.success
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.best.coords
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.broken.1.delta
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.broken.delta
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.fillseq.fa
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.filter2.success
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.gap_coordinates.txt
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.gaps.success
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.noise.success
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled2.txt
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.txt
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.scaffold.success
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.split.success
+│   │   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna.w_noise
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split
+│   │   │   └── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.broken -> hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split
+│   │   ├── SMARTdenovo_HIFI_SRR11560043
+│   │   │   ├── nohup.out
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.cns
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.cns.log
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.1.dot
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.2.dot
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.3.dot
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.4.dot
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.5.dot
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.contained_reads
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.dup
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.lnk
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.utg
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.lay.utg.dup
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.obt
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.ovl
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.dmo.ovl.contained
+│   │   │   ├── SMARTdenovo_HIFI_SRR11560043.fa.gz
+│   │   │   └── SMARTdenovo_HIFI_SRR11560043.mak
+│   │   ├── SMARTdenovo_nanopore_SRR17331923
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.cns
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.cns.log
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.1.dot
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.2.dot
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.3.dot
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.4.dot
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.5.dot
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.contained_reads
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.dup
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.lnk
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.utg
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.lay.utg.dup
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.obt
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.ovl
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.dmo.ovl.contained
+│   │   │   ├── SMARTdenovo_nanopore_SRR17331923.fa.gz
+│   │   │   └── SMARTdenovo_nanopore_SRR17331923.mak
+│   │   ├── spades_illumina_SRR11560048_pe
+│   │   │   ├── assembly_graph_after_simplification.gfa
+│   │   │   ├── assembly_graph.fastg
+│   │   │   ├── assembly_graph_with_scaffolds.gfa
+│   │   │   ├── before_rr.fasta
+│   │   │   ├── contigs.fasta
+│   │   │   ├── contigs.paths
+│   │   │   ├── dataset.info
+│   │   │   ├── input_dataset.yaml
+│   │   │   ├── K21
+│   │   │   ├── K33
+│   │   │   ├── K55
+│   │   │   ├── misc
+│   │   │   ├── params.txt
+│   │   │   ├── pipeline_state
+│   │   │   ├── run_spades.sh
+│   │   │   ├── run_spades.yaml
+│   │   │   ├── scaffolds.fasta
+│   │   │   ├── scaffolds.paths
+│   │   │   ├── spades.log
+│   │   │   └── tmp
+│   │   └── Visualisation
+│   │       ├── Hifiasm_HIFI_SRR34390379_HIC_SRR34411203
+│   │       ├── Minimap2_HIFI_SRR11560043
+│   │       ├── Minimap2_nanopore_SRR17331923
+│   │       ├── SMARTdenovo_HIFI_SRR11560043
+│   │       ├── SMARTdenovo_nanopore_SRR17331923
+│   │       └── spades_illumina_SRR11560048_pe
+│   ├── braker
+│   │   ├── braker_rna_protein
+│   │   │   ├── Augustus
+│   │   │   ├── braker.aa
+│   │   │   ├── braker.codingseq
+│   │   │   ├── braker.gtf
+│   │   │   ├── braker.log
+│   │   │   ├── errors
+│   │   │   ├── GeneMark-ETP
+│   │   │   ├── genome_header.map
+│   │   │   ├── hintsfile.gff
+│   │   │   ├── species
+│   │   │   └── what-to-cite.txt
+│   │   ├── braker_rna_protein_2
+│   │   │   ├── Augustus
+│   │   │   ├── braker.aa
+│   │   │   ├── braker.codingseq
+│   │   │   ├── braker.gtf
+│   │   │   ├── braker.log
+│   │   │   ├── errors
+│   │   │   ├── GeneMark-ETP
+│   │   │   ├── genome_header.map
+│   │   │   ├── hintsfile.gff
+│   │   │   ├── species
+│   │   │   └── what-to-cite.txt
+│   │   ├── genome
+│   │   │   ├── genome_index.1.ht2
+│   │   │   ├── genome_index.2.ht2
+│   │   │   ├── genome_index.3.ht2
+│   │   │   ├── genome_index.4.ht2
+│   │   │   ├── genome_index.5.ht2
+│   │   │   ├── genome_index.6.ht2
+│   │   │   ├── genome_index.7.ht2
+│   │   │   ├── genome_index.8.ht2
+│   │   │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked
+│   │   │   └── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked.fai
+│   │   ├── proteins
+│   │   │   ├── NCBI
+│   │   │   └── OrthoDB11
+│   │   └── rnaseq
+│   │       ├── rnaseq_SRR34414162.sorted.bam
+│   │       ├── rnaseq_SRR34414162.sorted.bam.bai
+│   │       ├── SRR34414162
+│   │       ├── SRR34414162_1.fastq
+│   │       └── SRR34414162_2.fastq
+│   ├── images
+│   │   ├── Bandage_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa_2.png
+│   │   ├── Bandage_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa.png
+│   │   ├── dot_Genome_assemblies_AG1_AG8_plot.png
+│   │   ├── dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.png
+│   │   ├── dot_Minimap2_HIFI_SRR11560043.png
+│   │   ├── dot_Minimap2_nanopore_SRR17331923.png
+│   │   ├── dot_nucmer_spades_illumina_SRR11560048.png
+│   │   ├── dot_SMARTdenovo_HIFI_SRR11560043.png
+│   │   ├── dot_SMARTdenovo_nanopore_SRR17331923_plot.png
+│   │   ├── SRR17331923_nanoplot_clean_STATS.png
+│   │   └── SRR17331923_nanoplot_STATS.png
+│   ├── quast_results
+│   │   ├── latest -> results_2025_11_27_16_51_02
+│   │   ├── results_2025_11_19_15_58_09
+│   │   │   ├── aligned_stats
+│   │   │   ├── basic_stats
+│   │   │   ├── contigs_reports
+│   │   │   ├── genome_stats
+│   │   │   ├── icarus.html
+│   │   │   ├── icarus_viewers
+│   │   │   ├── quast.log
+│   │   │   ├── report.html
+│   │   │   ├── report.pdf
+│   │   │   ├── report.tex
+│   │   │   ├── report.tsv
+│   │   │   ├── report.txt
+│   │   │   ├── transposed_report.tex
+│   │   │   ├── transposed_report.tsv
+│   │   │   └── transposed_report.txt
+│   │   ├── results_2025_11_24_13_21_57
+│   │   │   ├── aligned_stats
+│   │   │   ├── basic_stats
+│   │   │   ├── contigs_reports
+│   │   │   ├── genome_stats
+│   │   │   ├── icarus.html
+│   │   │   ├── icarus_viewers
+│   │   │   ├── quast.log
+│   │   │   ├── report.html
+│   │   │   ├── report.pdf
+│   │   │   ├── report.tex
+│   │   │   ├── report.tsv
+│   │   │   ├── report.txt
+│   │   │   ├── transposed_report.tex
+│   │   │   ├── transposed_report.tsv
+│   │   │   └── transposed_report.txt
+│   │   └── results_2025_11_27_16_51_02
+│   │       ├── aligned_stats
+│   │       ├── basic_stats
+│   │       ├── contigs_reports
+│   │       ├── genome_stats
+│   │       ├── icarus.html
+│   │       ├── icarus_viewers
+│   │       ├── quast.log
+│   │       ├── report.html
+│   │       ├── report.pdf
+│   │       ├── report.tex
+│   │       ├── report.tsv
+│   │       ├── report.txt
+│   │       ├── transposed_report.tex
+│   │       ├── transposed_report.tsv
+│   │       └── transposed_report.txt
+│   ├── reads
+│   │   ├── FASTP_REPORTS
+│   │   │   └── SRR8926039
+│   │   ├── FASTQC_REPORTS
+│   │   │   ├── SRR11560048
+│   │   │   ├── SRR8926039
+│   │   │   └── test.html
+│   │   ├── HIC
+│   │   │   ├── SRR34411203
+│   │   │   ├── SRR34411203_1.fastq
+│   │   │   └── SRR34411203_2.fastq
+│   │   ├── HIFI
+│   │   │   ├── SRR11560043
+│   │   │   ├── SRR11560043.fastq
+│   │   │   ├── SRR11560043_fastqc.html
+│   │   │   ├── SRR11560043_fastqc.zip
+│   │   │   ├── SRR34390379
+│   │   │   ├── SRR34390379.fastq
+│   │   │   ├── SRR34390379_fastqc.html
+│   │   │   └── SRR34390379_fastqc.zip
+│   │   ├── Illumina
+│   │   │   ├── SRR11560048
+│   │   │   ├── SRR11560048_1.fastq
+│   │   │   ├── SRR11560048_2.fastq
+│   │   │   ├── SRR8926039
+│   │   │   ├── SRR8926039_1.clean.fastq
+│   │   │   ├── SRR8926039_1.fastq
+│   │   │   ├── SRR8926039_2.clean.fastq
+│   │   │   └── SRR8926039_2.fastq
+│   │   ├── NANOPLOT_REPORTS
+│   │   │   ├── SRR15096500_nanoplot
+│   │   │   ├── SRR17331923_nanoplot
+│   │   │   ├── SRR17331923_nanoplot_clean
+│   │   │   └── SRR19543541_nanoplot
+│   │   ├── Nanopore
+│   │   │   ├── nanoQC.html
+│   │   │   ├── NanoQC.log
+│   │   │   ├── NanoStats.txt
+│   │   │   ├── nohup.out
+│   │   │   ├── SRR15096500
+│   │   │   ├── SRR15096500.fastq
+│   │   │   ├── SRR15096500_fastqc.html
+│   │   │   ├── SRR15096500_fastqc.zip
+│   │   │   ├── SRR15096500_trimmed.fastq
+│   │   │   ├── SRR17331923
+│   │   │   ├── SRR17331923_clean.fastq
+│   │   │   ├── SRR17331923.fastq
+│   │   │   ├── SRR17331923_trimmed.fastq
+│   │   │   ├── SRR19543541
+│   │   │   └── SRR19543541.fastq
+│   │   └── test
+│   │       ├── se.fastq
+│   │       ├── se_fastqc.html
+│   │       └── se_fastqc.zip
+│   ├── ref
+│   │   ├── GCA_000695385.1_RSAG8-1.V1_genomic.fna
+│   │   ├── GCF_016906535.1_ASM1690653v1_genomic.fna
+│   │   └── Visualization
+│   │       └── Genome_assemblies_AG1_AG8
+│   └── repeats
+│       ├── Hifiasm_masked_genome
+│       │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.cat.gz
+│       │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked
+│       │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.out
+│       │   ├── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.out.gff
+│       │   └── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.tbl
+│       ├── Hifiasm_masked_genome_classified
+│       │   └── hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa
+│       ├── RM_300292.ThuNov271944592025
+│       │   ├── genome.2bit
+│       │   └── rmod.log
+│       ├── RM_300402.ThuNov271945482025
+│       │   ├── consensi.fa
+│       │   ├── consensi.fa.classified
+│       │   ├── families-classified.stk
+│       │   ├── families.stk
+│       │   ├── genome.2bit
+│       │   ├── LTR_591565.ThuNov272202072025
+│       │   ├── RM_591671.ThuNov272202512025
+│       │   ├── rmod.log
+│       │   ├── round-1
+│       │   ├── round-2
+│       │   ├── round-3
+│       │   ├── round-4
+│       │   └── tmpConsensi.fa
+│       ├── RM_593668.ThuNov272212052025
+│       │   ├── consensi.fa.classified.ndb
+│       │   ├── consensi.fa.classified.nhr
+│       │   ├── consensi.fa.classified.nin
+│       │   ├── consensi.fa.classified.njs
+│       │   ├── consensi.fa.classified.not
+│       │   ├── consensi.fa.classified.nsq
+│       │   ├── consensi.fa.classified.ntf
+│       │   ├── consensi.fa.classified.nto
+│       │   └── makeblastdb.log
+│       ├── R.solani_repeats_db-families.fa
+│       ├── R.solani_repeats_db-families.stk
+│       ├── R.solani_repeats_db.nhr
+│       ├── R.solani_repeats_db.nin
+│       ├── R.solani_repeats_db.njs
+│       ├── R.solani_repeats_db.nnd
+│       ├── R.solani_repeats_db.nni
+│       ├── R.solani_repeats_db.nog
+│       ├── R.solani_repeats_db.nsq
+│       ├── R.solani_repeats_db-rmod.log
+│       └── R.solani_repeats_db.translation
+├── DirectoryStructure.txt
+├── quast_results
+│   ├── latest -> results_2025_11_18_17_11_48
+│   └── results_2025_11_18_17_11_48
+│       ├── aligned_stats
+│       │   ├── cumulative_plot.pdf
+│       │   ├── NAx_plot.pdf
+│       │   └── NGAx_plot.pdf
+│       ├── basic_stats
+│       │   ├── coverage_histogram.pdf
+│       │   ├── cumulative_plot.pdf
+│       │   ├── GC_content_plot.pdf
+│       │   ├── gc.icarus.txt
+│       │   ├── miniasm_hifi_GC_content_plot.pdf
+│       │   ├── miniasm_nanopore_GC_content_plot.pdf
+│       │   ├── NGx_plot.pdf
+│       │   ├── Nx_plot.pdf
+│       │   ├── smart_hifi_GC_content_plot.pdf
+│       │   ├── smart_nanopore_GC_content_plot.pdf
+│       │   ├── spades_illumina_pe_coverage_histogram.pdf
+│       │   └── spades_illumina_pe_GC_content_plot.pdf
+│       ├── contigs_reports
+│       │   ├── all_alignments_miniasm_hifi.tsv
+│       │   ├── all_alignments_miniasm_nanopore.tsv
+│       │   ├── all_alignments_smart_hifi.tsv
+│       │   ├── all_alignments_smart_nanopore.tsv
+│       │   ├── all_alignments_spades_illumina_pe.tsv
+│       │   ├── contigs_report_miniasm_hifi.mis_contigs.info
+│       │   ├── contigs_report_miniasm_hifi.stderr
+│       │   ├── contigs_report_miniasm_hifi.stdout
+│       │   ├── contigs_report_miniasm_hifi.unaligned.info
+│       │   ├── contigs_report_miniasm_nanopore.mis_contigs.info
+│       │   ├── contigs_report_miniasm_nanopore.stderr
+│       │   ├── contigs_report_miniasm_nanopore.stdout
+│       │   ├── contigs_report_miniasm_nanopore.unaligned.info
+│       │   ├── contigs_report_smart_hifi.mis_contigs.info
+│       │   ├── contigs_report_smart_hifi.stderr
+│       │   ├── contigs_report_smart_hifi.stdout
+│       │   ├── contigs_report_smart_hifi.unaligned.info
+│       │   ├── contigs_report_smart_nanopore.mis_contigs.info
+│       │   ├── contigs_report_smart_nanopore.stderr
+│       │   ├── contigs_report_smart_nanopore.stdout
+│       │   ├── contigs_report_smart_nanopore.unaligned.info
+│       │   ├── contigs_report_spades_illumina_pe.mis_contigs.info
+│       │   ├── contigs_report_spades_illumina_pe.stderr
+│       │   ├── contigs_report_spades_illumina_pe.stdout
+│       │   ├── contigs_report_spades_illumina_pe.unaligned.info
+│       │   ├── miniasm_hifi.mis_contigs.fa
+│       │   ├── miniasm_nanopore.mis_contigs.fa
+│       │   ├── minimap_output
+│       │   ├── misassemblies_frcurve_plot.pdf
+│       │   ├── misassemblies_plot.pdf
+│       │   ├── misassemblies_report.tex
+│       │   ├── misassemblies_report.tsv
+│       │   ├── misassemblies_report.txt
+│       │   ├── smart_hifi.mis_contigs.fa
+│       │   ├── smart_nanopore.mis_contigs.fa
+│       │   ├── spades_illumina_pe.mis_contigs.fa
+│       │   ├── transposed_report_misassemblies.tex
+│       │   ├── transposed_report_misassemblies.tsv
+│       │   ├── transposed_report_misassemblies.txt
+│       │   ├── unaligned_report.tex
+│       │   ├── unaligned_report.tsv
+│       │   └── unaligned_report.txt
+│       ├── genome_stats
+│       │   ├── genome_fraction_histogram.pdf
+│       │   ├── genome_info.txt
+│       │   ├── miniasm_hifi_gaps.txt
+│       │   ├── miniasm_nanopore_gaps.txt
+│       │   ├── smart_hifi_gaps.txt
+│       │   ├── smart_nanopore_gaps.txt
+│       │   └── spades_illumina_pe_gaps.txt
+│       ├── icarus.html
+│       ├── icarus_viewers
+│       │   ├── alignment_viewer.html
+│       │   └── contig_size_viewer.html
+│       ├── quast.log
+│       ├── report.html
+│       ├── report.pdf
+│       ├── report.tex
+│       ├── report.tsv
+│       ├── report.txt
+│       ├── transposed_report.tex
+│       ├── transposed_report.tsv
+│       └── transposed_report.txt
+├── README.md
+└── README_past.md
+
+124 directories, 441 files
