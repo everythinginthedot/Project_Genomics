@@ -843,5 +843,50 @@ braker.pl --genome genome/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.
 
 Using OrthoDB11 proteins
 ```
+cd braker
 braker.pl --genome genome/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked --prot_seq proteins/OrthoDB11/Fungi.fa --bam rnaseq/rnaseq_SRR34414162.sorted.bam --threads 16 --workingdir ./braker_rna_protein_2 &
 ```
+
+
+
+## **BUSCO**
+
+```
+busco -i braker/braker_rna_protein_2/braker.aa -l agaricomycetes_odb12 -o busco_braker_proteins -m proteins
+```
+
+    ---------------------------------------------------
+    |Results from dataset agaricomycetes_odb12         |
+    ---------------------------------------------------
+    |C:93.3%[S:79.9%,D:13.3%],F:0.9%,M:5.8%,n:3398     |
+    |3169    Complete BUSCOs (C)                       |
+    |2716    Complete and single-copy BUSCOs (S)       |
+    |453    Complete and duplicated BUSCOs (D)         |
+    |32    Fragmented BUSCOs (F)                       |
+    |197    Missing BUSCOs (M)                         |
+    |3398    Total BUSCO groups searched               |
+    ---------------------------------------------------
+
+![BUSCO BRAKER proteins](./data/images/busco_braker_proteins.png)
+
+
+
+
+```
+busco -i assembly/CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.masked -l agaricomycetes_odb12 -o busco_hifiasm_genome -m genome
+```
+
+    -------------------------------------------------------------------------------------------
+    |Results from dataset agaricomycetes_odb12                                                 |
+    -------------------------------------------------------------------------------------------
+    |C:87.2%[S:86.3%,D:0.8%],F:1.2%,M:11.6%,n:3398,E:42.5%                                     |
+    |2962    Complete BUSCOs (C)    (of which 1258 contain internal stop codons)               |
+    |2934    Complete and single-copy BUSCOs (S)                                               |
+    |28    Complete and duplicated BUSCOs (D)                                                  |
+    |42    Fragmented BUSCOs (F)                                                               |
+    |394    Missing BUSCOs (M)                                                                 |
+    |3398    Total BUSCO groups searched                                                       |
+    -------------------------------------------------------------------------------------------
+
+
+![BUSCO hifiasm genome](./data/images/busco_hifiasm_genome.png)
