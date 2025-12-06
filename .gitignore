@@ -8,3 +8,7 @@ data/ref
 data/repeats
 data/braker
 data/busco
+data/eggnog
+data/eggnog_db
+data/functional_annotation
+data/busco_downloads
