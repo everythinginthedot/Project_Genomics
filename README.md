@@ -1168,3 +1168,16 @@ ptg000098l | 17893 | 0.0 | 36.523 | 0
 ptg000044l | 16746 | 1.367 | 37.089 | 0
 ptg000079l | 15958 | 0.213 | 34.597 | 0
 ptg000133l | 14682 | 1.294 | 35.458 | 0
+
+
+
+
+After obtainig these results I decided to exclude short biologically   insignificatn scaffolds of length 20-90kb from final assembly. Additionally two files containing 16 and 20 scaffolds were created - GENOME_thin.fasta and GENOME_wide.fasta. Second file contains scaffolds that are not big enough to be chromosomes, but not too small to be excluded from genome assembly - they also contain annotated genes.   
+
+These files are stored in data/RESULTS/genome_assembly   
+
+
+
+## **Circos**
+
+![Circos](./data/images/Circos_first.png)
