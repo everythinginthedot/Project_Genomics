@@ -1176,7 +1176,30 @@ After obtainig these results I decided to exclude short biologically   insignifi
 
 These files are stored in data/RESULTS/genome_assembly   
 
+## **Genome annotation statistics**
 
+### **AGAT**
+
+```
+conda activate artale
+conda install agat
+```
+
+```
+sed 's/\t/ | /g; 1s/^/| /; 1s/$/ |/' output_agat_braker_GENOME_wide.txt | \
+sed '2s/.*/|---|---|---|---|---|/' > agat_stats_braker_GENOME_wide.md
+```
+
+| Type (3rd column) | Number | Size total (kb) | Size mean (bp) | % of the genome | 
+|---|---|---|---|---|
+**exon** | 87925 | 19165.81 | 217.98 | 35.97
+**gene** | 11537 | 20552.52 | 1781.44 | 38.57
+**intron** | 74598 | 5140.85 | 68.91 | 9.65
+**mrna** | 1048 | 1715.92 | 1637.33 | 3.22
+**start_codon** | 13323 | 39.95 | 3.00 | 0.07
+**stop_codon** | 13322 | 39.95 | 3.00 | 0.07
+**transcript** | 13327 | 24306.65 | 1823.87 | 45.61
+**Total** | 303005 | 90127.45 | 297.45 | 169.13
 
 ## **Circos**
 
