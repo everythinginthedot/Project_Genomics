@@ -723,7 +723,7 @@ ORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR343903
 cat hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.tbl
 ```
 
-| Parametr          | Wartość |
+| Parameter          | Value |
 |------------------|---------|
 | File name        | `hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa` |
 | Sequences        | 162     |
