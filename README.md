@@ -773,6 +773,53 @@ Simple repeats:       3197       147981 bp    0.26 %
 Low complexity:        440        21971 bp    0.04 %  
 '=================================================='  
 
+| Parametr          | Wartość |
+|------------------|---------|
+| File name        | `hifiasm....hic.p_ctg.fa.PolcaCorrected.fa` |
+| Sequences        | 162     |
+| Total length     | 57 788 712 bp |
+| GC level         | 47.57 % |
+| Bases masked     | 14 351 195 bp (24.83 %) |
+
+
+| Repeat                      | Number | Length (bp)| Percent|
+|-----------------------------|--------|------------|--------|
+| **Retroelements**           | 2371   | 4 723 207  | 8.17 % |
+| Penelope                    | 12     | 10 679     | 0.02 % |
+| LINEs                       | 526    | 267 600    | 0.46 % |
+| CRE/SLACS                   | 0      | 0          | 0.00 % |
+| L2/CR1/Rex                  | 0      | 0          | 0.00 % |
+| R1/LOA/Jockey               | 279    | 131 874    | 0.23 % |
+| R2/R4/NeSL                  | 0      | 0          | 0.00 % |
+| RTE/Bov-B                   | 0      | 0          | 0.00 % |
+| L1/CIN4                     | 0      | 0          | 0.00 % |
+| **LTR elements**            | 1833   | 4 444 928  | 7.69 % |
+| BEL/Pao                     | 0      | 0          | 0.00 % |
+| Ty1/Copia                   | 157    | 144 869    | 0.25 % |
+| Gypsy/DIRS1                 | 1614   | 4 233 459  | 7.33 % |
+| Retroviral                  | 62     | 66 600     | 0.12 % |
+|                             |        |            |        |   
+| **DNA transposons**         | 942    | 764 480    | 1.32 % |
+| hobo-Activator              | 90     | 67 188     | 0.12 % |
+| Tc1-IS630-Pogo              | 117    | 60 754     | 0.11 % |
+| En-Spm                      | 0      | 0          | 0.00 % |
+| MULE-MuDR                   | 0      | 0          | 0.00 % |
+| PiggyBac                    | 0      | 0          | 0.00 % |
+| Tourist/Harbinger           | 35     | 13 732     | 0.02 % |
+| Mirage                      | 0      | 0          | 0.00 % |
+|                             |        |            |        |  
+| **Rolling-circles**         | 170    | 46 155     | 0.08 % |
+|                             |        |            |        | 
+| **Unclassified**            | 14 194 | 8 140 514  | 14.09 % |
+|                             |        |            |        | 
+| **Total interspersed repeats** | —    | 13 628 201 | 23.58 % |
+|                             |        |            |        | 
+| Small RNA                   | 119    | 506 887    | 0.88 % |
+|                             |        |            |        | 
+| Satellites                  | 0      | 0          | 0.00 % |
+| Simple repeats              | 3 197  | 147 981    | 0.26 % |
+| Low complexity              | 440    | 21 971     | 0.04 % |
+
 
 ## **BRAKER**
 
@@ -1004,6 +1051,7 @@ sort -k2,2nr scaffold_stats.tsv > scaffold_stats_sorted_by_length.tsv
 sed 's/\t/ | /g; 1s/^/| /; 1s/$/ |/' scaffold_stats_sorted_by_length.tsv | \
 sed '2s/.*/|---|---|---|---|---|/' > table_scaffold_stats.md
 ```
+
 
 | scaffold | length | repeat_percent | GC_percent | n_genes |
 |---|---|---|---|---|
