@@ -723,59 +723,9 @@ ORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR343903
 cat hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.tbl
 ```
 
-
-file name: hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa  
-sequences:           162  
-total length:   57788712 bp  (57788712 bp excl N/X-runs)  
-GC level:         47.57 %  
-bases masked:   14351195 bp ( 24.83 %)  
-'=================================================='  
-               number of      length   percentage  
-               elements*    occupied  of sequence  
-'--------------------------------------------------'  
-Retroelements         2371      4723207 bp    8.17 %  
-   SINEs:                0            0 bp    0.00 %  
-   Penelope:            12        10679 bp    0.02 %  
-   LINEs:              526       267600 bp    0.46 %  
-    CRE/SLACS            0            0 bp    0.00 %  
-     L2/CR1/Rex          0            0 bp    0.00 %  
-     R1/LOA/Jockey     279       131874 bp    0.23 %  
-     R2/R4/NeSL          0            0 bp    0.00 %  
-     RTE/Bov-B           0            0 bp    0.00 %  
-     L1/CIN4             0            0 bp    0.00 %  
-   LTR elements:      1833      4444928 bp    7.69 %  
-     BEL/Pao             0            0 bp    0.00 %  
-     Ty1/Copia         157       144869 bp    0.25 %  
-     Gypsy/DIRS1      1614      4233459 bp    7.33 %  
-       Retroviral       62        66600 bp    0.12 %  
-  
-DNA transposons        942       764480 bp    1.32 %  
-   hobo-Activator       90        67188 bp    0.12 %  
-   Tc1-IS630-Pogo      117        60754 bp    0.11 %  
-   En-Spm                0            0 bp    0.00 %  
-   MULE-MuDR             0            0 bp    0.00 %  
-   PiggyBac              0            0 bp    0.00 %  
-   Tourist/Harbinger    35        13732 bp    0.02 %  
-   Other (Mirage,        0            0 bp    0.00 %  
-    P-element, Transib)  
-
-Rolling-circles        170        46155 bp    0.08 %  
-
-Unclassified:        14194      8140514 bp   14.09 %  
-
-Total interspersed repeats:    13628201 bp   23.58 %   
-
-
-Small RNA:             119       506887 bp    0.88 %  
-
-Satellites:              0            0 bp    0.00 %  
-Simple repeats:       3197       147981 bp    0.26 %  
-Low complexity:        440        21971 bp    0.04 %  
-'=================================================='  
-
 | Parametr          | Wartość |
 |------------------|---------|
-| File name        | `hifiasm....hic.p_ctg.fa.PolcaCorrected.fa` |
+| File name        | `hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa` |
 | Sequences        | 162     |
 | Total length     | 57 788 712 bp |
 | GC level         | 47.57 % |
