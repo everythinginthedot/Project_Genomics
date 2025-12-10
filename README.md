@@ -1201,4 +1201,106 @@ sed '2s/.*/|---|---|---|---|---|/' > agat_stats_braker_GENOME_wide.md
 
 ## **Circos**
 
+First circos plot was made using modified script from Circos.ipynb  
+`See in Project_genomics/data/Visual/Circos.ipynb`   
+
 ![Circos](./data/images/Circos_first.png)
+
+
+Second circos plot was made using another modified script from Circos.ipynb. It represents repeated 200-mers among whole genome.  
+`See in Project_genomics/Visual_intergenomic_kmers/Circos.ipynb`
+
+![Circos](./data/images/circos_intergenomic_kmers.png)
+
+### **MCScanX**
+
+To present the intergenomic collinear regions MCScanX tool was used  
+
+
+**Formatting GTF file**
+```
+grep -P "\tCDS\t" braker.gtf | \
+awk '{
+    match($0, /gene_id "([^"]+)"/, a);
+    gene=a[1];
+    if(gene=="") next;
+    # считаем min/max координаты
+    if(!(gene in min)) { min[gene]=$4; max[gene]=$5 }
+    else { if($4<min[gene]) min[gene]=$4; if($5>max[gene]) max[gene]=$5 }
+    chrom[gene]=$1
+} END {
+}' > braker.mcscanx.gff chrom[g], g, min[g], max[g]
+```
+
+
+In this gff file we are keeping only genes annotated on 16 chromosomes that can be seen in RESULTS/genome_assembly/GENOME_thin.fasta   
+```
+grep -Ff keep_scaffolds_thin.txt braker.mcscanx.gff > genome.mcscanx.filtered.gff
+```
+
+**Intermediate file to keep gene names**   
+```
+grep -P "\tCDS\t" braker.gtf | \
+awk '{
+    match($0, /transcript_id "([^"]+)"; gene_id "([^"]+)"/, a);
+    transcript=a[1]; gene=a[2];
+    if(transcript=="") next;
+    print transcript, gene
+}' > trans2gene.txt
+```
+
+**Creating file containing proteins with names from trans2gene.txt**  
+```
+awk 'BEGIN{
+      while((getline<"trans2gene.txt")>0) map[$1]=$2
+     }
+     /^>/{ 
+        seq_id=substr($1,2);
+        if(seq_id in map) { print ">"map[seq_id] } else {print $0} ; next
+     }
+     {print}
+' braker.fa > genome.mcscanx.fa
+```
+
+
+**Creating database and BLAST**
+```
+diamond makedb --in braker.mcscanx.fa -d genome
+
+diamond blastp \
+    -d genome \
+    -q braker.mcscanx.fa \
+    -o genome.blast \
+    -e 1e-5 \
+    --outfmt 6 \
+    --max-target-seqs 5
+```
+```
+mv genome.mcscanx.fa gen/
+mv genome.mcscanx.filtered.gff gen/
+mv genome.blast gen/
+```
+
+
+**Running MCScanX**
+```
+./MCScanX ../mcscanx/gen/genome
+```
+
+Creating .links file for circos
+```
+cd gen/
+
+awk 'BEGIN{OFS="\t"} {gene=$2; chr=$1; start=$3; end=$4; gene_pos[gene]=chr"\t"start"\t"end} END{for(g in gene_pos) print g, gene_pos[g]}' genome.mcscanx.filtered.gff > gene_positions.tsv
+
+grep -P "^\s+\d+-" genome.collinearity | awk -F"\t" '{gsub(":", "", $1); print $2, $3}' > collinearity_pairs.tsv
+
+sed 's/ \+/\t/g' collinearity_pairs.tsv > collinearity_pairs_tab.tsv 
+
+awk 'BEGIN{FS=OFS="\t"}                                              
+FNR==NR {chr[$1]=$2; start[$1]=$3; end[$1]=$4; next} 
+{g1=$1; g2=$2; if(g1 in chr && g2 in chr) print chr[g1], start[g1], end[g1], chr[g2], start[g2], end[g2]}' gene_positions.tsv collinearity_pairs_tab.tsv > circos.links.txt
+```
+
+
+![Circos](./data/images/circos_mcscanx.png)
