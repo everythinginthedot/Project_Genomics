@@ -1408,3 +1408,4 @@ RepeatMasker  -pa 16  -lib RM_614054.TueDec161557312025/consensi.fa.classified -
 | Satellites                       | 0      | 0           | 0.00 %  |
 | Simple repeats                   | 3 189  | 148 220     | 0.26 %  |
 | Low complexity                   | 437    | 22 009      | 0.04 %  |
+
