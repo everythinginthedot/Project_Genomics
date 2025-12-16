@@ -17,4 +17,6 @@ data/mcscanx
 data/mummerplot
 data/repeats_2
 data/reads
-data/reads
+data/RESULTS
+data/agat
+data/quast_results
