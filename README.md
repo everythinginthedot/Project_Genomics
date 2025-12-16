@@ -1370,6 +1370,14 @@ BuildDatabase -name R.solani_repeats_db ../assembly/SAMBA/scaffolds_HiFI.fa
 RepeatMasker  -pa 16  -lib RM_614054.TueDec161557312025/consensi.fa.classified -gff -xsmall  -no_is ../assembly/SAMBA/scaffolds_HiFI.fa 
 ```
 
+| Parameter          | Value |
+|------------------|---------|
+| File name        | `scaffolds_HiFI.fa ` |
+| Sequences        | 161     |
+| Total length     | 57 745 292 bp |
+| GC level         | 47.58 % |
+| Bases masked     | 14 546 428 bp (25.19 %) |
+
 
 | Repeat                           | Number | Length (bp) | Percent |
 |----------------------------------|--------|-------------|---------|
