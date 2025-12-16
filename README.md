@@ -1304,3 +1304,107 @@ FNR==NR {chr[$1]=$2; start[$1]=$3; end[$1]=$4; next}
 
 
 ![Circos](./data/images/circos_mcscanx.png)
+
+
+
+
+## **Few more analysis**
+
+**GENOME_thin**
+
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_thin.fasta -p GENOME_thin_plot
+
+mummerplot -p dot_GENOME_thin_plot -t png GENOME_thin_plot.delta 
+```
+![GENOME thin mummerplot](./data/images/dot_GENOME_thin_plot.png)
+
+
+**GENOME_wide**
+
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_wide.fasta -p GENOME_wide_plot
+
+mummerplot -p dot_GENOME_wide_plot -t png GENOME_wide_plot.delta 
+```
+![GENOME wide mummerplot](./data/images/dot_GENOME_wide_plot.png)
+
+
+**GENOME_unsure**
+
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_unsure.fasta -p GENOME_unsure_plot
+
+mummerplot -p dot_GENOME_unsure_plot -t png GENOME_unsure_plot.delta 
+```
+![GENOME wide mummerplot](./data/images/dot_GENOME_unsure_plot.png)
+
+
+
+
+## **Remaking analysis with appropriate files**
+
+Remaking all parts of analysis made after SAMBA  
+
+Made a folder SAMBA in /assembly and put scaffolds_HIFI.fa - which is - GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.scaffolds.fa   
+
+```
+mkdir repeats_2
+cd repeats_2
+```
+
+
+
+Here I restarted Repeat Masking using another scaffolds: 
+```
+curl -sSLO https://github.com/Dfam-consortium/TETools/raw/master/dfam-tetools.sh
+chmod +x dfam-tetools.sh
+./dfam-tetools.sh
+```
+
+```
+BuildDatabase -name R.solani_repeats_db ../assembly/SAMBA/scaffolds_HiFI.fa
+```
+
+```
+RepeatMasker  -pa 16  -lib RM_614054.TueDec161557312025/consensi.fa.classified -gff -xsmall  -no_is ../assembly/SAMBA/scaffolds_HiFI.fa 
+```
+
+
+| Repeat                           | Number | Length (bp) | Percent |
+|----------------------------------|--------|-------------|---------|
+| **Retroelements**                | 4 796  | 5 422 649   | 9.39 %  |
+| SINEs                            | 51     | 12 835      | 0.02 %  |
+| Penelope                         | 19     | 18 380      | 0.03 %  |
+| LINEs                            | 385    | 185 493     | 0.32 %  |
+| CRE/SLACS                        | 0      | 0           | 0.00 %  |
+| L2/CR1/Rex                       | 0      | 0           | 0.00 %  |
+| R1/LOA/Jockey                    | 109    | 32 089      | 0.06 %  |
+| R2/R4/NeSL                       | 0      | 0           | 0.00 %  |
+| RTE/Bov-B                        | 0      | 0           | 0.00 %  |
+| L1/CIN4                          | 0      | 0           | 0.00 %  |
+|                                  |        |             |         |   
+| **LTR elements**                 | 4 341  | 5 205 941   | 9.02 %  |
+| BEL/Pao                          | 0      | 0           | 0.00 %  |
+| Ty1/Copia                        | 746    | 448 848     | 0.78 %  |
+| Gypsy/DIRS1                      | 2 028  | 4 000 569   | 6.93 %  |
+| Retroviral                       | 21     | 27 161      | 0.05 %  |
+|                                  |        |             |         |   
+| **DNA transposons**              | 902    | 800 790     | 1.39 %  |
+| hobo-Activator                   | 59     | 28 716      | 0.05 %  |
+| Tc1-IS630-Pogo                   | 132    | 66 639      | 0.12 %  |
+| En-Spm                           | 0      | 0           | 0.00 %  |
+| MULE-MuDR                        | 0      | 0           | 0.00 %  |
+| PiggyBac                         | 0      | 0           | 0.00 %  |
+| Tourist/Harbinger                | 110    | 59 088      | 0.10 %  |
+| Other (Mirage, P-element, Transib) | 0    | 0           | 0.00 %  |
+|                                  |        |             |         |   
+| **Rolling-circles**              | 90     | 31 479      | 0.05 %  |
+|                                  |        |             |         |   
+| **Unclassified**                 | 13 457 | 7 614 738   | 13.19 % |
+|                                  |        |             |         |   
+| **Total interspersed repeats**   | —      | 13 838 177  | 23.96 % |
+| Small RNA                        | 107    | 506 543     | 0.88 %  |
+| Satellites                       | 0      | 0           | 0.00 %  |
+| Simple repeats                   | 3 189  | 148 220     | 0.26 %  |
+| Low complexity                   | 437    | 22 009      | 0.04 %  |
