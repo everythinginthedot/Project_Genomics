@@ -1417,3 +1417,68 @@ RepeatMasker  -pa 16  -lib RM_614054.TueDec161557312025/consensi.fa.classified -
 | Simple repeats                   | 3 189  | 148 220     | 0.26 %  |
 | Low complexity                   | 437    | 22 009      | 0.04 %  |
 
+
+
+
+## BRAKER
+
+```
+cd genome_new/
+hisat2-build scaffolds_HiFI.fa.masked genome_index
+```
+
+```
+hisat2 -p 16 --dta -x ../genome_new/genome_index -1 SRR34414162_1.fastq  -2 SRR34414162_2.fastq | samtools sort -@ 16 -o rnaseq_SRR34414162.sorted.bam
+samtools index rnaseq_SRR34414162.sorted.bam 
+```
+
+```
+braker.pl --genome genome_new/scaffolds_HiFI.fa.masked --prot_seq proteins/OrthoDB11/Fungi.fa --bam rnaseq/rnaseq_SRR34414162.sorted.bam --threads 16 --workingdir ./braker_NEW_rna_protein &
+```
+
+
+## BUSCO
+
+**Proteins**
+```
+busco -i braker/braker_NEW_rna_protein/braker.aa -l agaricomycetes_odb12 -o busco_NEW_braker_proteins -m proteins
+
+busco --plot busco_NEW_braker_proteins
+```
+
+    ---------------------------------------------------
+    |Results from dataset agaricomycetes_odb12         |
+    ---------------------------------------------------
+    |C:93.2%[S:80.0%,D:13.2%],F:0.9%,M:5.9%,n:3398     |
+    |3166    Complete BUSCOs (C)                       |
+    |2719    Complete and single-copy BUSCOs (S)       |
+    |447    Complete and duplicated BUSCOs (D)         |
+    |32    Fragmented BUSCOs (F)                       |
+    |200    Missing BUSCOs (M)                         |
+    |3398    Total BUSCO groups searched               |
+    ---------------------------------------------------
+
+![BUSCO proteins](./data/images/busco_NEW_plot_proteins.png)
+
+
+**Genome assembly**
+```
+busco -i assembly/SAMBA/scaffolds_HiFI.fa.masked -l agaricomycetes_odb12 -o busco_NEW_hifiasm_genome -m genome
+
+busco --plot busco_NEW_hifiasm_genome
+```
+
+    -------------------------------------------------------------------------------------------
+    |Results from dataset agaricomycetes_odb12                                                 |
+    -------------------------------------------------------------------------------------------
+    |C:87.1%[S:86.3%,D:0.8%],F:1.2%,M:11.6%,n:3398,E:42.5%                                     |
+    |2961    Complete BUSCOs (C)    (of which 1257 contain internal stop codons)               |
+    |2933    Complete and single-copy BUSCOs (S)                                               |
+    |28    Complete and duplicated BUSCOs (D)                                                  |
+    |42    Fragmented BUSCOs (F)                                                               |
+    |395    Missing BUSCOs (M)                                                                 |
+    |3398    Total BUSCO groups searched                                                       |
+    -------------------------------------------------------------------------------------------
+
+
+![BUSCO proteins](./data/images/busco_NEW_plot_genome.png)
