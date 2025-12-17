@@ -22,3 +22,5 @@ data/agat
 data/quast_results
 data/busco_NEW_braker_proteins
 data/busco_NEW_hifiasm_genome
+data/eggnog_NEW
+data/eggnog_db_NEW
