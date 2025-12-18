@@ -36,7 +36,7 @@ Shasum:  `7ce7c33021e7f81b7c8d7967ac9946123a420476`
 
 ### 🧬 **HiFi reads**
 
-HiFi **SRR11560043** reads were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560043&display=data-access) on the 29 Oct 2025 using:
+**NOT USED!** HiFi **SRR11560043** reads were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560043&display=data-access) on the 29 Oct 2025 using:
 ```
 prefetch SRR11560043
 fasterq-dump SRR11560043
@@ -47,7 +47,7 @@ Shasum: `7d0633ac6899248839021b8eac02aaa67113764d`
 
 ---
 
-**NOT USED!** Another HiFi **SRR34390379** reads were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
+Another HiFi **SRR34390379** reads were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
 ```
 prefetch SRR34390379
 fasterq-dump SRR34390379
@@ -160,6 +160,13 @@ https://www.ncbi.nlm.nih.gov/sra/SRX3446646[accn]
 fastqc SRR11560043.fastq
 ```
 Results of quality control were ideal.
+
+
+```
+fastqc SRR34390379.fastq
+```
+
+![SRR34390379 FastQC](./data/images/SRR_HIFI_fastqc.png)
 
 ---
 
@@ -504,6 +511,16 @@ N90 = 686908, n = 17
 N100 = 14705, n = 162  
 N_count = 0  
 Gaps = 0
+
+
+# QUAST
+
+```
+quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "hifiasm, corrected_hifiasm, scaffolded_hifiasm, samba_hifiasm" assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa assembly/CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa assembly/Scaffolded_CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa assembly/Samba_Scaffolded_CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.scaffolds.fa
+```
+
+![QUAST hifiasm 1](./data/images/quast_hifiasm_1.png)
+![QUAST hifiasm 2](./data/images/quast_hifiasm_2.png)
 
 
 **ALTERNATIVE: SRR34390379 with option --hg-size 41m**
