@@ -1203,6 +1203,8 @@ conda install agat
 ```
 
 ```
+
+```
 sed 's/\t/ | /g; 1s/^/| /; 1s/$/ |/' output_agat_braker_GENOME_wide.txt | \
 sed '2s/.*/|---|---|---|---|---|/' > agat_stats_braker_GENOME_wide.md
 ```
