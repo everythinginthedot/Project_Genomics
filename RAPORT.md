@@ -391,36 +391,6 @@ After obtaining results I decided to use hifiasm tool to reassembly genome using
 
 ### **Hifiasm**
 
-**SRR11560043**
-Assembly with Hi-C reads
-```
-mkdir Hifiasm_HIFI_SRR11560043_HIC_SRR34411203
-cd Hifiasm_HIFI_SRR11560043_HIC_SRR34411203/
-
-hifiasm -o Hifiasm_HIFI_SRR11560043_HIC_SRR34411203 -t 10 --h1 ../../reads/HIC/SRR34411203_1.fastq --h2 ../../reads/HIC/SRR34411203_2.fastq ../../reads/HIFI/SRR11560043.fastq
-```
-
-stats for Hifiasm_HIFI_SRR11560043_HIC_SRR34411203.hic.p_utg.gfa  
-sum = 0, n = 0, ave = 0.00, largest = 0  
-N50 = 0, n = 0  
-N60 = 0, n = 0  
-N70 = 0, n = 0  
-N80 = 0, n = 0  
-N90 = 0, n = 0  
-N100 = 0, n = 0  
-N_count = 0  
-Gaps = 0  
-
-
-Assembly without Hi-C reads
-```
-mkdir Hifiasm_HIFI_SRR11560043
-cd Hifiasm_HIFI_SRR11560043
-hifiasm -o Hifiasm_HIFI_SRR11560043 -t 18 ../../reads/HIFI/SRR11560043.fastq
-```
-
-
-
 **SRR34390379**
 Assembly with Hi-C reads
 
@@ -449,22 +419,6 @@ N100 = 14705, n = 162
 N_count = 0  
 Gaps = 0
 
-
-# QUAST
-
-### **AG-1**
-```
-quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "spades_illumina_pe, smart_nanopore, smart_hifi, miniasm_nanopore, miniasm_hifi, hifiasm" assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
-```
-
-
-### **AG-8**
-```
-quast -r ref/GCA_000695385.1_RSAG8-1.V1_genomic.fna -l "spades_illumina_pe, smart_nanopore, smart_hifi, miniasm_nanopore, miniasm_hifi, hifiasm" assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
-```
-
-
-
 **Assembly visualization**  
 
 nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa -p hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot
@@ -474,6 +428,25 @@ mummerplot -p dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot -t png hifiasm_H
 ![SRR34390379 assembly plot](./data/images/dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.png)
 
 
+# QUAST
+
+### **Reference genome: AG-1**
+```
+quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "spades_illumina_pe, smart_nanopore, smart_hifi, miniasm_nanopore, miniasm_hifi, hifiasm" assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
+```
+![Quast analysis Ref: AG-1](./data/images/quast_all_AG1_1.png)
+![Quast analysis Ref: AG-1](./data/images/quast_all_AG1_2.png)
+
+
+### **Reference genome: AG-8**
+```
+quast -r ref/GCA_000695385.1_RSAG8-1.V1_genomic.fna -l "spades_illumina_pe, smart_nanopore, smart_hifi, miniasm_nanopore, miniasm_hifi, hifiasm" assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
+```
+![Quast analysis Ref: AG-8](./data/images/quast_all_AG8_1.png)
+![Quast analysis Ref: AG-8](./data/images/quast_all_AG8_2.png)
+
+
+## **Polishing**
 
 ### **HiFi SRR34390379 + Hi-C SRR34411203 using Illumina SRR8926039 reads**
 
@@ -490,7 +463,7 @@ polca.sh -t 10 -a ../Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34
 
 ## **Scaffolding**
 
-**Chromosome scaffolder**
+### **Chromosome scaffolder**
 ```
 chromosome_scaffolder.sh -r ../../ref/GCF_016906535.1_ASM1690653v1_genomic.fna -q ../../assembly/CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa -t 16 -nb -v
 ```
@@ -510,7 +483,7 @@ N100 = 14682, n = 161
 N_count = 0  
 Gaps = 0  
 
-**SAMBA**
+### **SAMBA**
 
 ```
 mkdir Samba_Scaffolded_CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203
@@ -538,7 +511,7 @@ Gaps = 0
 
 
 
-**Quast**
+## **Quast**
 After using chromosome scaffolder and Samba the quast comparison was performed
 
 ```
@@ -1230,5 +1203,4 @@ nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_as
 mummerplot -p dot_GENOME_unsure_plot -t png GENOME_unsure_plot.delta 
 ```
 ![GENOME wide mummerplot](./data/images/dot_GENOME_unsure_plot.png)
-
 
