@@ -1040,16 +1040,6 @@ mummerplot -p dot_GENOME_thin_plot -t png GENOME_thin_plot.delta
 ![GENOME thin mummerplot](./data/images/dot_GENOME_thin_plot.png)
 
 
-## **GENOME_wide**
-
-```
-nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_wide.fasta -p GENOME_wide_plot
-
-mummerplot -p dot_GENOME_wide_plot -t png GENOME_wide_plot.delta 
-```
-![GENOME wide mummerplot](./data/images/dot_GENOME_wide_plot.png)
-
-
 ## **GENOME_unsure**
 
 ```
@@ -1197,4 +1187,3 @@ FNR==NR {chr[$1]=$2; start[$1]=$3; end[$1]=$4; next}
 
 
 ![Circos](./data/images/circos_mcscanx.png)
-
