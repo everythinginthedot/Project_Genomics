@@ -527,14 +527,11 @@ quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "hifiasm, corrected_hif
 
 The Bandage app was used to illustrate genome assembly
 
-*hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa*
 ![Hifiasm SRR34390379 assembly](./data/images/Bandage_hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.gfa_2.png)
 
+**Or**
 
-
-
-
-
+![Hifiasm New](./data/images/graph_bandage_161_samba.png)
 
 
 
@@ -644,7 +641,7 @@ unzip rhizo.zip
 ```
 
 Shasum:  
-161a5d20cd01d530ce73c96ab031e627  protein.faa
+`161a5d20cd01d530ce73c96ab031e627`  protein.faa
 
 
 Another protein database was downloaded from [OrthoDB](https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/) 11 on 28 Nov 2025 using the following command:
@@ -807,22 +804,22 @@ New GTF file contains genes with information about GO and KEGG:
 
 
 
-## **Analyzis of genome assembly**  
+## **Analysis of genome assembly**  
 The genome of Rhizoctonia solani consists of 16 chromosomes. In bandage it is clearly visible, that there are 16 big scaffolds and over 140 small contigs. After annotation of the genome many of   these small contigs remained unannotated.  
 
-**scripts/sort_fasta.py**  
+**`scripts/sort_fasta.py`**
 Sorts fasta sequences by length  
 
-**scripts/check_scaffolds_without_genes.py**  
+**`scripts/check_scaffolds_without_genes.py`**  
 Takes FASTA and GTF files and checks which of the scaffolds are unannotated  
 
-**scripts/split_fasta_by_annotations.py**  
+**`scripts/split_fasta_by_annotations.py`**  
 Splits FASTA file into two depending on annotation  
 
-**scripts/softmask_fasta_to_gtf.py**  
+**`scripts/softmask_fasta_to_gtf.py`**  
 Creates GTF file with annotated reapeats  
 
-**scripts/scaffold_stats.py**  
+**`scripts/scaffold_stats.py`**  
 Creates a table with basic stats about each scaffold  
 
 
@@ -836,7 +833,7 @@ python scripts/check_scaffolds_without_genes.py -f assembly/SAMBA/sorted_scaffol
 ```
 repeats_masked_NEW.gtf -> assembly/SAMBA
 
-Annotated:      28  
+Annotated:      27  
 Non-annotated: 134  
 
 
@@ -1028,9 +1025,40 @@ ptg000133l | 14682 | 1.294 | 35.458 | 0
 
 
 
-After obtainig these results I decided to exclude short biologically   insignificatn scaffolds of length 20-90kb from final assembly. Additionally two files containing 16 and 20 scaffolds were created - GENOME_thin.fasta and GENOME_wide.fasta. Second file contains scaffolds that are not big enough to be chromosomes, but not too small to be excluded from genome assembly - they also contain annotated genes.   
+After obtaining these results I decided to exclude short biologically  insignificant scaffolds of length 20-90kb from final assembly. Additionally two files containing 16 and 20 scaffolds were created - GENOME_thin.fasta and GENOME_wide.fasta. Second file contains scaffolds that are not big enough to be chromosomes, but not too small to be excluded from genome assembly - they also contain annotated genes.   
 
 These files are stored in data/RESULTS/genome_assembly   
+
+
+## **GENOME_thin**
+
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_thin.fasta -p GENOME_thin_plot
+
+mummerplot -p dot_GENOME_thin_plot -t png GENOME_thin_plot.delta 
+```
+![GENOME thin mummerplot](./data/images/dot_GENOME_thin_plot.png)
+
+
+## **GENOME_wide**
+
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_wide.fasta -p GENOME_wide_plot
+
+mummerplot -p dot_GENOME_wide_plot -t png GENOME_wide_plot.delta 
+```
+![GENOME wide mummerplot](./data/images/dot_GENOME_wide_plot.png)
+
+
+## **GENOME_unsure**
+
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_unsure.fasta -p GENOME_unsure_plot
+
+mummerplot -p dot_GENOME_unsure_plot -t png GENOME_unsure_plot.delta 
+```
+![GENOME wide mummerplot](./data/images/dot_GENOME_unsure_plot.png)
+
 
 
 
@@ -1169,38 +1197,4 @@ FNR==NR {chr[$1]=$2; start[$1]=$3; end[$1]=$4; next}
 
 
 ![Circos](./data/images/circos_mcscanx.png)
-
-
-
-
-## **Few more analysis**
-
-**GENOME_thin**
-
-```
-nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_thin.fasta -p GENOME_thin_plot
-
-mummerplot -p dot_GENOME_thin_plot -t png GENOME_thin_plot.delta 
-```
-![GENOME thin mummerplot](./data/images/dot_GENOME_thin_plot.png)
-
-
-**GENOME_wide**
-
-```
-nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_wide.fasta -p GENOME_wide_plot
-
-mummerplot -p dot_GENOME_wide_plot -t png GENOME_wide_plot.delta 
-```
-![GENOME wide mummerplot](./data/images/dot_GENOME_wide_plot.png)
-
-
-**GENOME_unsure**
-
-```
-nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna RESULTS/genome_assembly/GENOME_unsure.fasta -p GENOME_unsure_plot
-
-mummerplot -p dot_GENOME_unsure_plot -t png GENOME_unsure_plot.delta 
-```
-![GENOME wide mummerplot](./data/images/dot_GENOME_unsure_plot.png)
 
