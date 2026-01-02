@@ -40,7 +40,7 @@ Shasum:  `7ce7c33021e7f81b7c8d7967ac9946123a420476`
 
 ### 🧬 **HiFi reads**
 
-HiFi **SRR34390379** reads were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
+HiFi **SRR34390379** reads from *Rhizoctonia solani* **AG-8** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
 ```
 prefetch SRR34390379
 fasterq-dump SRR34390379
@@ -53,7 +53,7 @@ Shasum: `f23b3523af9fe21aeef2066da8ba14444e2a0ea7`
 
 ### 🧬 **Nanopore reads**
 
-Nanopore reads **SRR17331923** (GridION) were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR17331923&display=metadata):
+Nanopore reads **SRR17331923** (GridION) from *Rhizoctonia solani* **AG-7** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR17331923&display=metadata):
 ```
 prefetch SRR17331923
 fasterq-dump SRR17331923
@@ -66,7 +66,25 @@ Shasum: `c661512388e38debe5a84347e48f3b9e00c702ae`
 
 ### 🧬 **Illumina reads**
 
-Illumina (HiSeq 2000) paired-end reads **SRR11560048** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560048&display=metadata) on 29 Oct 2025:
+
+Illumina (HiSeq 2000) paired-end reads **SRR8926039** from *Rhizoctonia solani* **AG-8** were downloaded from 
+[NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR8926039&display=metadata) on 24 Nov 2025:
+```
+prefetch SRR8926039
+fasterq-dump SRR8926039
+```
+
+Resulting files:
+`SRR8926039_1.fastq`
+`SRR8926039_2.fastq`
+
+Shasum:
+- `b016004be928755aacec34110048077a57d71ee3  SRR8926039_1.fastq`
+- `cfc0f5df357dbf21b88dcf529207fb79e5d801ef  SRR8926039_2.fastq`
+
+---
+
+Illumina (HiSeq 2000) paired-end reads **SRR11560048** from *Rhizoctonia solani* **AG-1** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560048&display=metadata) on 29 Oct 2025:
 ```
 prefetch SRR11560048
 fasterq-dump SRR11560048
@@ -84,7 +102,7 @@ Shasum:
 
 ### 🧬 **Hi-C reads**
 
-Hi-C paired-end reads **SRR34411203** were downloaded from [NCBI](https://www.ncbi.nlm.nih.gov/sra/SRX29574603[accn]) on 18 Nov 2025:
+Hi-C paired-end reads **SRR34411203** from *Rhizoctonia solani* **AG-8** were downloaded from [NCBI](https://www.ncbi.nlm.nih.gov/sra/SRX29574603[accn]) on 18 Nov 2025:
 ```
 prefetch SRR34411203
 fasterq-dump SRR34411203
@@ -97,12 +115,6 @@ Resulting files:
 Shasum:
 `73cabb6fe29875fffbada425544f662f07d33133 SRR34411203_1.fastq`
 `2c44505e853a3ebbf3becb5ea1ccf327a346b063 SRR34411203_2.fastq`
-
-
-### 🧬 **RNA-seq reads**
-
-https://www.ncbi.nlm.nih.gov/sra/SRX3446646[accn]
-
 
 ---
 
@@ -187,7 +199,7 @@ fastp \
 ```
 Fastp report is stored in data/reads/FASTP_REPORTS
 
-![FastP report SRR11560048](./data/images/Fastp-raport-SRR11560048.png)
+![FastP report SRR11560048](./data/images/Fastp-report-SRR11560048.png)
 
 #### **FastQC after preprocessing**
 
@@ -234,11 +246,6 @@ mummerplot -p dot_nucmer_spades_illumina_SRR11560048 -t png nucmer_spades_illumi
 ![SRR11560048 assembly plot](./data/images/dot_nucmer_spades_illumina_SRR11560048.png)
 
 
-**Hybrid assembly**
-
-```
-spades.py -1 ../reads/Illumina/SRR8926039_1.clean.fastq -2 ../reads/Illumina/SRR8926039_2.clean.fastq --pacbio ../reads/HIFI/SRR34390379.fastq -o Hybrid_HIFI_SRR34390379_Illumina_SRR8926039 --isolate
-```
 
 ---
 
@@ -430,7 +437,8 @@ mummerplot -p dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot -t png hifiasm_H
 
 # QUAST
 
-### **Reference genome: AG-1**
+### **Reference genome: R.solani AG-1**
+ 
 ```
 quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "spades_illumina_pe, smart_nanopore, smart_hifi, miniasm_nanopore, miniasm_hifi, hifiasm" assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
 ```
@@ -438,7 +446,8 @@ quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "spades_illumina_pe, sm
 ![Quast analysis Ref: AG-1](./data/images/quast_all_AG1_2.png)
 
 
-### **Reference genome: AG-8**
+### **Reference genome: R.solani AG-8**
+During all steps of analysis reference genome AG-1 was used. Quast comparison using AG-8 reference genome was performed only for illustrative purposes.
 ```
 quast -r ref/GCA_000695385.1_RSAG8-1.V1_genomic.fna -l "spades_illumina_pe, smart_nanopore, smart_hifi, miniasm_nanopore, miniasm_hifi, hifiasm" assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
 ```
@@ -651,6 +660,9 @@ wget "https://bioinf.uni-greifswald.de/bioinf/partitioned_odb11/Fungi.fa.gz"
 
 ### **RNA-seq**
 
+RNA-seq reads were downloaded from
+[NCBI](https://www.ncbi.nlm.nih.gov/sra/SRX3446646) on 28 Nov 2025 using the following command:
+
 ```
 prefetch SRR34414162
 fasterq-dump SRR34414162
@@ -841,8 +853,7 @@ Non-annotated: 134
 python scripts/softmask_fasta_to_gtf.py -f assembly/SAMBA/sorted_scaffolds_HiFi.fa.masked -o repeats_masked_NEW.gtf
 ```
 
-✅ GTF file created: repeats_masked_NEW.gtf
-✅ Total repeat regions annotated: 18103
+Total repeat regions annotated: 18103   
 
 
 
@@ -1071,7 +1082,6 @@ sed '2s/.*/|---|---|---|---|---|/' > agat_stats.md
 
 | Type (3rd column) | Number | Size total (kb) | Size mean (bp) | % of the genome | 
 |---|---|---|---|---|
-**cds** | 87862 | 19022.20 | 216.50 | 32.94
 **exon** | 87862 | 19022.20 | 216.50 | 32.94
 **gene** | 11534 | 20470.34 | 1774.78 | 35.45
 **intron** | 74550 | 5131.19 | 68.83 | 8.89
@@ -1085,7 +1095,7 @@ sed '2s/.*/|---|---|---|---|---|/' > agat_stats.md
 
 ## **Circos**
 
-First circos plot was made using modified script from Circos.ipynb  
+First circos plot representing intra-chromosomal 20-mers was made using modified script from Circos.ipynb  
 `See in Project_genomics/data/Visual/Circos.ipynb`   
 
 ![Circos](./data/images/Circos_first.png)
@@ -1187,3 +1197,17 @@ FNR==NR {chr[$1]=$2; start[$1]=$3; end[$1]=$4; next}
 
 
 ![Circos](./data/images/circos_mcscanx.png)
+
+
+
+## **Concluison**
+
+In this project, I applied a bioinformatics pipeline for genome assembly, annotation, and analysis of Rhizoctonia solani. Using publicly available sequencing data generated by multiple technologies (HiFi, Nanopore, Illumina, Hi-C, and RNA-seq), I performed all key stages of genome analysis, including quality control, de novo assembly, scaffolding, polishing, gene prediction, and functional annotation.   
+
+Through comparative evaluation of different assembly strategies, I demonstrated that long-read and hybrid approaches, particularly assemblies generated with hifiasm using HiFi and Hi-C data, produced the most contiguous and structurally coherent genomes. These assemblies achieved higher N50 values and reduced fragmentation compared to short-read-only approaches.   
+
+Gene prediction performed with BRAKER3, supported by RNA-seq and protein evidence, resulted in a high-quality gene set. BUSCO completeness scores indicated that the majority of conserved fungal genes were successfully recovered at both the genome and protein levels. Functional annotation using EggNOG provided additional biological context by assigning predicted genes to orthologous groups and functional categories.   
+
+Repeat annotation and genome statistics revealed that a substantial portion of the R. solani genome consists of repetitive elements, accounting for approximately 24% of the assembly. Analysis of scaffold structure and repeat distribution contributed to a deeper understanding of genome organization and highlighted regions that may require further refinement or biological investigation.   
+
+Finally, visualization of assembly graphs and genomic features using tools such as Bandage and Circos enhanced interpretation of genome structure.     
