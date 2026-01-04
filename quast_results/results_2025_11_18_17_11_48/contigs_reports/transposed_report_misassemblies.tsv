@@ -1,6 +1,0 @@
-Assembly	# misassemblies	  # contig misassemblies	    # c. relocations	    # c. translocations	    # c. inversions	  # scaffold misassemblies	    # s. relocations	    # s. translocations	    # s. inversions	# misassembled contigs	Misassembled contigs length	# local misassemblies	# scaffold gap ext. mis.	# scaffold gap loc. mis.	# unaligned mis. contigs	# mismatches	# indels	    # indels (<= 5 bp)	    # indels (> 5 bp)	Indels length
-spades_illumina_pe	269	268	145	122	1	1	0	1	0	222	688874	439	1	2049	271	95759	27796	26976	820	53326
-smart_nanopore	0	0	0	0	0	0	0	0	0	0	0	0	0	0	25	4072	249	243	6	374
-smart_hifi	1905	1905	472	1421	12	0	0	0	0	95	46572596	1009	0	0	6	215857	76217	74311	1906	135745
-miniasm_nanopore	0	0	0	0	0	0	0	0	0	0	0	0	0	0	68	1548	68	68	0	97
-miniasm_hifi	0	0	0	0	0	0	0	0	0	0	0	0	0	0	761	37444	6	6	0	6
