@@ -7,3 +7,7 @@
 *.bam
 *.gz
 *.mak
+*.delta
+*.mgaps
+*.ntref
+*.fasta

@@ -169,8 +169,6 @@ NanoPlot \
 
 ![SRR34390379 FastQC](./data/images/NanoPlot_raport_SRR34390379.png)
 
----
-
 ![SRR34390379 FastQC](./data/images/NanoPlot_KDE_SRR34390379.png)
 
 
@@ -178,19 +176,7 @@ NanoPlot \
 
 ### **Nanopore**
 
-#### **NanoPlot**
-
-DOT
-```
-NanoPlot \
-  --fastq SRR17331923.fastq \
-  --plots dot \
-  --downsample 200000 \
-  --loglength \
-  -o nanoplot_SRR17331923_2
-```
-
-#### **Preliminary QC**
+#### **Preliminary QC: NanoPlot**
 ```
 NanoPlot --fastq SRR17331923.fastq -o SRR17331923_nanoplot
 ```
@@ -315,7 +301,17 @@ N50 = 581
 ```
 nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta -p nucmer_spades_illumina_SRR11560048
 
-mummerplot -p dot_nucmer_spades_illumina_SRR11560048 -t png nucmer_spades_illumina_SRR11560048.delta
+delta-filter -1 -i 95 -l 1000 nucmer_spades_illumina_SRR11560048.delta > nucmer_spades_illumina_SRR11560048.FILTERED_1.delta
+
+delta-filter -1 -i 90 -l 500 nucmer_spades_illumina_SRR11560048.delta > nucmer_spades_illumina_SRR11560048.FILTERED_2.delta
+
+delta-filter -q -r -i 80 -l 200 nucmer_spades_illumina_SRR11560048.delta > nucmer_spades_illumina_SRR11560048.FILTERED_3.delta
+
+delta-filter -q -r -i 70 -l 100 nucmer_spades_illumina_SRR11560048.delta > nucmer_spades_illumina_SRR11560048.FILTERED_4.delta
+
+delta-filter -i 50 -l 50 nucmer_spades_illumina_SRR11560048.delta > nucmer_spades_illumina_SRR11560048.FILTERED_5.delta
+
+mummerplot -p dot_nucmer_spades_illumina_SRR11560048.FILTERED_2 -t png nucmer_spades_illumina_SRR11560048.FILTERED_2.delta
 ```
 ![SRR11560048 assembly plot](./data/images/dot_nucmer_spades_illumina_SRR11560048.png)
 
@@ -347,12 +343,25 @@ N_count = 0
 Gaps = 0  
 
 **Assembly visualization**
-```
-nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns -p SMARTdenovo_nanopore_SRR17331923_plot
 
-mummerplot -p dot_SMARTdenovo_nanopore_SRR17331923_plot -t png SMARTdenovo_nanopore_SRR17331923_plot.delta
+Multiple delta-filter thresholds were applied to the NUCmer alignment to explore different stringency levels, ranging from very strict to very relaxed. For visualization, the third filter (-q -r -i 80 -l 200) was selected to generate a dotplot with Mummerplot, balancing the removal of short or low-identity alignments while retaining informative structural matches.
+
 ```
-![SRR17331923 assembly plot](./data/images/dot_SMARTdenovo_nanopore_SRR17331923_plot.png)
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns -p SMARTdenovo_nanopore_SRR17331923_plot
+
+delta-filter -1 -i 95 -l 1000 SMARTdenovo_nanopore_SRR17331923_plot.delta > SMARTdenovo_nanopore_SRR17331923_plot.FILTERED_1.delta
+
+delta-filter -1 -i 90 -l 500 SMARTdenovo_nanopore_SRR17331923_plot.delta > SMARTdenovo_nanopore_SRR17331923_plot.FILTERED_2.delta
+
+delta-filter -q -r -i 80 -l 200 SMARTdenovo_nanopore_SRR17331923_plot.delta > SMARTdenovo_nanopore_SRR17331923_plot.FILTERED_3.delta
+
+delta-filter -q -r -i 70 -l 100 SMARTdenovo_nanopore_SRR17331923_plot.delta > SMARTdenovo_nanopore_SRR17331923_plot.FILTERED_4.delta
+
+delta-filter -i 50 -l 50 SMARTdenovo_nanopore_SRR17331923_plot.delta > SMARTdenovo_nanopore_SRR17331923_plot.FILTERED_5.delta
+
+mummerplot -p dot_SMARTdenovo_nanopore_SRR17331923_plot_3 -t png SMARTdenovo_nanopore_SRR17331923_plot.FILTERED_3.delta
+```
+![SRR17331923 assembly plot](./data/images/dot_SMARTdenovo_nanopore_SRR17331923_plot_3.png)
 
 ---
 
@@ -382,6 +391,16 @@ Gaps = 0
 **Assembly visualization**
 ```
 nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns -p SMARTdenovo_HIFI_SRR11560043_plot
+
+delta-filter -1 -i 95 -l 1000 SMARTdenovo_HIFI_SRR11560043_plot.delta > SMARTdenovo_HIFI_SRR11560043_plot.FILTERED_1.delta
+
+delta-filter -1 -i 90 -l 500 SMARTdenovo_HIFI_SRR11560043_plot.delta > SMARTdenovo_HIFI_SRR11560043_plot.FILTERED_2.delta
+
+delta-filter -q -r -i 80 -l 200 SMARTdenovo_HIFI_SRR11560043_plot.delta > SMARTdenovo_HIFI_SRR11560043_plot.FILTERED_3.delta
+
+delta-filter -q -r -i 70 -l 100 SMARTdenovo_HIFI_SRR11560043_plot.delta > SMARTdenovo_HIFI_SRR11560043_plot.FILTERED_4.delta
+
+delta-filter -i 50 -l 50 SMARTdenovo_HIFI_SRR11560043_plot.delta > SMARTdenovo_HIFI_SRR11560043_plot.FILTERED_5.delta
 
 mummerplot -p dot_SMARTdenovo_HIFI_SRR11560043_plot -t png SMARTdenovo_HIFI_SRR11560043_plot.delta
 ```
@@ -415,14 +434,29 @@ N_count = 0
 Gaps = 0 
 
 **Assembly visualization**
+
+For visualization, the third filter (-q -r -i 80 -l 200) was selected to generate a dotplot with Mummerplot.   
+
 ```
 nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa
  -p assembly/Visualisation/Minimap2_nanopore_SRR17331923/Minimap2_nanopore_SRR17331923
 
-mummerplot -t png -p dot_Minimap2_nanopore_SRR17331923 Minimap2_nanopore_SRR17331923.delta
+cd assembly/Visualisation/Minimap2_nanopore_SRR17331923/
+
+delta-filter -1 -i 95 -l 1000 Minimap2_nanopore_SRR17331923.delta > Minimap2_nanopore_SRR17331923.FILTERED_1.delta
+
+delta-filter -1 -i 90 -l 500 Minimap2_nanopore_SRR17331923.delta > Minimap2_nanopore_SRR17331923.FILTERED_2.delta
+
+delta-filter -q -r -i 80 -l 200 Minimap2_nanopore_SRR17331923.delta > Minimap2_nanopore_SRR17331923.FILTERED_3.delta
+
+delta-filter -q -r -i 70 -l 100 Minimap2_nanopore_SRR17331923.delta > Minimap2_nanopore_SRR17331923.FILTERED_4.delta
+
+delta-filter -i 50 -l 50 Minimap2_nanopore_SRR17331923.delta > Minimap2_nanopore_SRR17331923.FILTERED_5.delta
+
+mummerplot -t png -p dot_Minimap2_nanopore_SRR17331923.FILTERED_3 Minimap2_nanopore_SRR17331923.FILTERED_3.delta
 ```
 
-![SRR17331923 assembly plot](./data/images/dot_Minimap2_nanopore_SRR17331923.png)
+![SRR17331923 assembly plot](./data/images/dot_Minimap2_nanopore_SRR17331923.FILTERED_3.png)
 
 ---
 
@@ -450,14 +484,27 @@ N_count = 0
 Gaps = 0  
 
 
-**Assembly visualization**  
+**Assembly visualization** 
+
+For visualization, the third filter (-q -r -i 80 -l 200) was selected to generate a dotplot with Mummerplot   
+
 ```
 nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa -p assembly/Visualisation/Minimap2_HIFI_SRR11560043/Minimap2_HIFI_SRR11560043
 
-mummerplot -t png -p dot_Minimap2_HIFI_SRR11560043 Minimap2_HIFI_SRR11560043.delta
+delta-filter -1 -i 95 -l 1000 Minimap2_HIFI_SRR11560043.delta > Minimap2_HIFI_SRR11560043.FILTERED_1.delta
+
+delta-filter -1 -i 90 -l 500 Minimap2_HIFI_SRR11560043.delta > Minimap2_HIFI_SRR11560043.FILTERED_2.delta
+
+delta-filter -q -r -i 80 -l 200 Minimap2_HIFI_SRR11560043.delta > Minimap2_HIFI_SRR11560043.FILTERED_3.delta
+
+delta-filter -q -r -i 70 -l 100 Minimap2_HIFI_SRR11560043.delta > Minimap2_HIFI_SRR11560043.FILTERED_4.delta
+
+delta-filter -i 50 -l 50 Minimap2_HIFI_SRR11560043.delta > Minimap2_HIFI_SRR11560043.FILTERED_5.delta
+
+mummerplot -t png -p dot_Minimap2_HIFI_SRR11560043.FILTERED_3 Minimap2_HIFI_SRR11560043.FILTERED_3.delta
 ```
 
-![SRR11560043 assembly plot](./data/images/dot_Minimap2_HIFI_SRR11560043.png)
+![SRR11560043 assembly plot](./data/images/dot_Minimap2_HIFI_SRR11560043.FILTERED_3.png)
 
 
 #### **Assemblies quality**
@@ -502,11 +549,25 @@ Gaps = 0
 
 **Assembly visualization**  
 
-nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna.fa hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa -p hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot
+For visualization, the third filter (-q -r -i 80 -l 200) was selected to generate a dotplot with Mummerplot   
 
-mummerplot -p dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot -t png hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.delta
+```
+nucmer --maxmatch ref/GCF_016906535.1_ASM1690653v1_genomic.fna assembly/Samba_Scaffolded_CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/GCF_016906535.1_ASM1690653v1_genomic.fna.hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa.PolcaCorrected.fa.split.reconciled.fa.scaffolds.fa -p assembly/Visualisation/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot
 
-![SRR34390379 assembly plot](./data/images/dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.png)
+delta-filter -1 -i 95 -l 1000 hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.delta > hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.FILTERED_1.delta
+
+delta-filter -1 -i 90 -l 500 hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.delta > hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.FILTERED_2.delta
+
+delta-filter -q -r -i 80 -l 200 hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.delta > hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.FILTERED_3.delta
+
+delta-filter -q -r -i 70 -l 100 hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.delta > hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.FILTERED_4.delta
+
+delta-filter -i 50 -l 50 hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.delta > hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.FILTERED_5.delta
+
+mummerplot -p dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.FILTERED_3 -t png hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.FILTERED_3.delta
+```
+
+![SRR34390379 assembly plot](./data/images/dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot.FILTERED_3.png)
 
 
 # QUAST
@@ -1125,7 +1186,21 @@ After examining the genome assembly statistics, 18 large scaffolds were clearly 
 
 Notably, among the annotated scaffolds shorter than 100 kb, all exhibited a markedly higher-than-average repeat content (65–93%), as identified by RepeatMasker. In addition, the unannotated scaffolds could be clearly divided into two distinct groups: scaffolds composed almost entirely of repetitive sequences and scaffolds with a near-zero repeat content (<2%).   
 
-Interestingly, scaffolds in the highly repetitive group displayed GC contents ranging from 46% to 51%, which is close to the genome-wide average. In contrast, scaffolds lacking repetitive elements showed consistently lower GC contents, ranging from 34% to 37%.   
+Interestingly, scaffolds in the highly repetitive group displayed GC contents ranging from 46% to 51%, which is close to the genome-wide average. In contrast, scaffolds lacking repetitive elements showed consistently lower GC contents, ranging from 34% to 37%.  
+
+These non-repetitive scaffolds were put to another fasta file and examined via BLASTn.
+
+```
+python script.py Another_organism.fasta GENOME_excluded.fasta LOW_GC_CONTENT.fasta
+```
+
+These non-repetitive scaffolds were extracted into a separate FASTA file and analyzed using BLASTn. This analysis revealed that the scaffolds correspond to **mitochondrial sequences**, explaining both their lower GC content and the lack of alignment to the nuclear reference genome.
+
+---
+
+Scaffolds exhibiting high repetitiveness were extracted into a separate FASTA file and analyzed using BLASTn. Of the 25 scaffolds, 5 matched the _Rhizoctonia solani_ fatty **acid synthase subunit beta** (RhiXN_03112), partial mRNA; 9 matched a _Rhizoctonia solani_ **uncharacterized protein** (RhiXN_05799), partial mRNA; and the remaining 10 corresponded to the _Rhizoctonia solani_ **18S rRNA** gene, isolate A68. Interestingly, one scaffold showed matches to both RhiXN_03112 and RhiXN_05799 in different regions of the same scaffold, which may indicate that these genes are located in close proximity on the genome.
+
+---
 
 Only scaffolds containing at least one annotated gene were retained for the final genome annotation. Scaffolds composed almost exclusively of repetitive elements or lacking gene predictions and exhibiting atypical GC content were excluded from downstream analyses.   
 
