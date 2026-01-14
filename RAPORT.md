@@ -7,19 +7,29 @@ This repository contains all datasets, commands, and analyses used in the projec
 
 ## 📖 **Description**
 
-This project focuses on genome assembly, annotation and quality assessment of *Rhizoctonia solani* using multiple sequencing technologies (HiFi, Nanopore, and Illumina).
+This project focuses on genome assembly, annotation and quality assessment of _Rhizoctonia solani_, with a primary emphasis on anastomosis group AG-8, using multiple sequencing technologies (HiFi, Nanopore, and Illumina).
 
-Rhizoctonia solani is a phytopathogenic fungus belonging to the order Cantharellales (formerly classified within Basidiomycota). It is widely distributed in soil and is responsible for diseases affecting many cultivated plants, such as seedling damping-off, root rot, and leaf spot diseases. Rhizoctonia solani has a broad host range, which makes it difficult to control in agriculture.  
+_Rhizoctonia solani_ is a phytopathogenic fungus belonging to the order Cantharellales (formerly classified within Basidiomycota). It is widely distributed in soil and is responsible for diseases affecting many cultivated plants, such as seedling damping-off, root rot, and leaf spot diseases. _Rhizoctonia solani_ has a broad host range, which makes it difficult to control in agriculture.  
 
-The number of chromosomes in R. solani depends on the strain and ranges from 10 to 18. Strains AG8 and AG1 each possess 16 chromosomes. Genome size also varies among strains and ranges from 37 to 51 Mb. A significant portion of the genome consists of repetitive elements, which on average account for about 16% of the total DNA sequence. An interesting feature of this species is the ability of some strains to exist in a heterokaryotic form, meaning that their cells contain two different haploid nuclei, which increases their genetic diversity and adaptive potential.   
+The number of chromosomes in _R.solani_ depends on the strain and ranges from 10 to 18. Strains AG8 and AG1 each possess 16 chromosomes. Genome size also varies among strains and ranges from 37 to 51 Mb. A significant portion of the genome consists of repetitive elements, which on average account for about 16% of the total DNA sequence. An interesting feature of this species is the ability of some strains to exist in a heterokaryotic form, meaning that their cells contain two different haploid nuclei, which increases their genetic diversity and adaptive potential.   
+
+Although this study focuses on the assembly of the AG-8 genome, the most contiguous publicly available assembly of _R. solani_ belongs to AG-1 and was therefore used as the reference genome for reference-based and comparative analyses.
 
 ---
 
 ## 🧫 **Data**
 
+All datasets used in this study were obtained from the NCBI public repositories (GenBank and SRA). NCBI was chosen as the primary data source because it provides curated and versioned datasets, ensuring reproducibility and long-term accessibility. For all downloaded files, SHA-1 checksums were computed to verify data integrity and to enable exact replication of the analysis.
+
 ### 🧬 **Reference genome**
 
-Reference genome of *Rhizoctonia solani* AG-1 was downloaded using this command on the 29 Oct from the NCBI FTP:  
+Although _Rhizoctonia solani_ **AG-8** was the primary focus of genome assembly in this study, the publicly available **AG-8** reference assembly was not suitable for use as a high-quality reference genome.
+In particular, the available **AG-8** assembly is highly fragmented, consisting of  857 scaffolds, which limits its utility for reliable reference-based analyses and large-scale structural comparisons.
+
+For this reason, the most contiguous and well-assembled genome available for _R.solani_ was selected as the reference.
+The genome of _Rhizoctonia solani_ **AG-1**, which exhibits substantially higher contiguity and assembly quality, was therefore used as the primary reference genome in downstream analyses.
+
+Reference genome of _Rhizoctonia solani_ **AG-1** was downloaded using this command on the 29 Oct from the NCBI FTP:  
 ```
 wget "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/016/906/535/GCF_016906535.1_ASM1690653v1/GCF_016906535.1_ASM1690653v1_genomic.fna.gz"
 ```
@@ -28,7 +38,7 @@ Resulting file:  `GCF_016906535.1_ASM1690653v1_genomic.fna`
 Shasum:  `87326de160c2cdf7436eef52a591c5abc4a1c1a8`
 
 
-Reference genome of *Rhizoctonia solani* AG-8 was downloaded using this command on the 24 Nov from the NCBI FTP:
+Reference genome of _Rhizoctonia solani_ **AG-8** was downloaded using this command on the 24 Nov from the NCBI FTP:
 ```
 wget 'https://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/695/385/GCA_000695385.1_RSAG8-1.V1/GCA_000695385.1_RSAG8-1.V1_genomic.fna.gz'
 ```
@@ -40,7 +50,9 @@ Shasum:  `7ce7c33021e7f81b7c8d7967ac9946123a420476`
 
 ### 🧬 **HiFi reads**
 
-HiFi **SRR34390379** reads from *Rhizoctonia solani* **AG-8** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
+PacBio HiFi reads provide high per-base accuracy and long read lengths, making them suitable for genome assembly, polishing, and structural variant detection.
+
+HiFi **SRR34390379** reads from _Rhizoctonia solani_ **AG-8** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?run=SRR34390379) on the 30 Oct 2025:
 ```
 prefetch SRR34390379
 fasterq-dump SRR34390379
@@ -53,7 +65,7 @@ Shasum: `f23b3523af9fe21aeef2066da8ba14444e2a0ea7`
 
 ### 🧬 **Nanopore reads**
 
-Nanopore reads **SRR17331923** (GridION) from *Rhizoctonia solani* **AG-7** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR17331923&display=metadata):
+Nanopore reads **SRR17331923** (GridION) from _Rhizoctonia solani_ **AG-7** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR17331923&display=metadata):
 ```
 prefetch SRR17331923
 fasterq-dump SRR17331923
@@ -62,12 +74,15 @@ fasterq-dump SRR17331923
 Resulting file: `SRR17331923.fastq`  
 Shasum: `c661512388e38debe5a84347e48f3b9e00c702ae`
 
+The choice of Nanopore reads from **AG-7** was motivated by the lack of publicly available Nanopore sequencing data for _R.solani_ **AG-8** in the NCBI SRA at the time of data collection.
+Among the available datasets, **AG-7** represents the closest phylogenetically related lineage to **AG-8**, making it the most suitable proxy for incorporating long-read Nanopore data into the analysis.
+
 ---
 
 ### 🧬 **Illumina reads**
 
 
-Illumina (HiSeq 2000) paired-end reads **SRR8926039** from *Rhizoctonia solani* **AG-8** were downloaded from 
+Illumina (HiSeq 2000) paired-end reads **SRR8926039** from _Rhizoctonia solani_ **AG-8** were downloaded from 
 [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR8926039&display=metadata) on 24 Nov 2025:
 ```
 prefetch SRR8926039
@@ -84,7 +99,7 @@ Shasum:
 
 ---
 
-Illumina (HiSeq 2000) paired-end reads **SRR11560048** from *Rhizoctonia solani* **AG-1** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560048&display=metadata) on 29 Oct 2025:
+Illumina (HiSeq 2000) paired-end reads **SRR11560048** from _Rhizoctonia solani_ **AG-1** were downloaded from [NCBI](https://trace.ncbi.nlm.nih.gov/Traces/?view=run_browser&acc=SRR11560048&display=metadata) on 29 Oct 2025:
 ```
 prefetch SRR11560048
 fasterq-dump SRR11560048
@@ -102,7 +117,9 @@ Shasum:
 
 ### 🧬 **Hi-C reads**
 
-Hi-C paired-end reads **SRR34411203** from *Rhizoctonia solani* **AG-8** were downloaded from [NCBI](https://www.ncbi.nlm.nih.gov/sra/SRX29574603[accn]) on 18 Nov 2025:
+Hi-C sequencing data capture three-dimensional chromatin interactions, enabling scaffolding of contigs into chromosome-scale assemblies and validation of large-scale genome organization.
+
+Hi-C paired-end reads **SRR34411203** from _Rhizoctonia solani_ **AG-8** were downloaded from [NCBI](https://www.ncbi.nlm.nih.gov/sra/SRX29574603[accn]) on 18 Nov 2025:
 ```
 prefetch SRR34411203
 fasterq-dump SRR34411203
@@ -123,28 +140,66 @@ Shasum:
 ### **HiFi reads**
 
 #### **FastQC**
-```
-fastqc SRR11560043.fastq
-```
-Results of quality control were ideal.
-
 
 ```
 fastqc SRR34390379.fastq
 ```
 
-![SRR34390379 FastQC](./data/images/SRR_HIFI_fastqc.png)
+![SRR34390379 FastQC](./data/images/FastQC-raport-SRR34390379.png)
+
+![SRR34390379 FastQC](./data/images/FastQC-raport-SRR34390379_PBSC.png)
+A strong nucleotide composition bias was observed at the first base position of HiFi reads, with an overrepresentation of thymine. This effect is a known technical artifact associated with SMRTbell library construction and circular consensus sequencing and does not reflect underlying genomic sequence composition. Nucleotide frequencies stabilized after the first base position, indicating high-quality reads.
+
+![SRR34390379 FastQC](./data/images/FastQC-raport-SRR34390379_GC.png)
+The distribution is characterized by a sharp peak centered at approximately 49% GC, reaching nearly the maximum of the plot, indicating that a large fraction of reads share a highly similar GC composition.
+
+In addition to the dominant peak, a secondary, smaller peak around ~35-36% GC is also observed.
+The presence of multiple peaks suggests that the dataset likely represents a mixture of sequences originating from distinct genomic sources, rather than a single homogeneous genome.
+
+During downstream genome assembly, reads contributing to the secondary GC peak were assembled into a small number of contigs that could not be mapped to the selected reference genome.
+These contigs are therefore likely derived from contaminating organisms.
+
+#### **NanoPlot**
+
+```
+NanoPlot \
+  --fastq SRR34390379.fastq \
+  -o nanoplot_SRR34390379
+```
+
+![SRR34390379 FastQC](./data/images/NanoPlot_raport_SRR34390379.png)
+
+---
+
+![SRR34390379 FastQC](./data/images/NanoPlot_KDE_SRR34390379.png)
+
 
 ---
 
 ### **Nanopore**
 
+#### **NanoPlot**
+
+DOT
+```
+NanoPlot \
+  --fastq SRR17331923.fastq \
+  --plots dot \
+  --downsample 200000 \
+  --loglength \
+  -o nanoplot_SRR17331923_2
+```
+
 #### **Preliminary QC**
 ```
-NanoPlot --fastq SRR[number].fastq -o SRR[number]_nanoplot
+NanoPlot --fastq SRR17331923.fastq -o SRR17331923_nanoplot
 ```
 
 ![SRR17331923 nanoplot statistics](./data/images/SRR17331923_nanoplot_STATS.png)
+
+---
+
+![SRR17331923 nanoplot statistics](./data/images/NanoPlot_KDE_SRR17331923_before.png)
 
 #### **Adapter trimming**
 ```
@@ -165,6 +220,13 @@ filtlong --min_length 1000 --keep_percent 90 SRR17331923_trimmed.fq > SRR1733192
 
 ![SRR17331923 nanoplot statistics](./data/images/SRR17331923_nanoplot_clean_STATS.png)
 
+---
+
+![SRR17331923 nanoplot statistics](./data/images/NanoPlot_KDE_SRR17331923_clean.png)
+
+
+---
+
 ### **Illumina**
 
 **SRR11560048**
@@ -173,10 +235,14 @@ filtlong --min_length 1000 --keep_percent 90 SRR17331923_trimmed.fq > SRR1733192
 
 ```
 fastqc SRR11560048_1.fastq
+```
+![FastQC report SRR11560048_1](./data/images/FastQC-raport-SRR11560048_1.png)
+
+```
 fastqc SRR11560048_2.fastq
 ```
-Reports are stored in data/reads/FASTQC_REPORTS   
-Reads were already preprocessed by authors  
+![FastQC report SRR11560048_2](./data/images/FastQC-raport-SRR11560048_2.png)
+
 
 #### **Fastp**
 
@@ -203,17 +269,25 @@ Fastp report is stored in data/reads/FASTP_REPORTS
 
 #### **FastQC after preprocessing**
 
+Prior to trimming, the Illumina data showed excellent quality in FastQC, with all metrics within the green range. After processing with fastp, the sequence length distribution displayed minor peaks around 90–91 bp and 94–95 bp. These small shifts likely reflect the trimming of adapters or low-quality bases by fastp, resulting in slightly shorter reads.
+
 ```
 fastqc SRR11560048_1.clean.fastq.gz
+```
+
+![FastQC report SRR11560048](./data/images/FastQC-raport-SRR11560048_1_clean_SLD.png)
+
+
+```
 fastqc SRR11560048_2.clean.fastq.gz
 ```
-Reports are stored in data/reads/FASTQC_REPORTS 
 
-![FastQC report SRR11560048](./data/images/FastQC-raport-SRR11560048_1.png)
+![FastQC report SRR11560048](./data/images/FastQC-raport-SRR11560048_2_clean_SLD.png)
+
 
 ---
 
-![FastQC report SRR11560048](./data/images/FastQC-raport-SRR11560048_2.png)
+
 
 
 ## 🧬 **Assembly**
@@ -437,7 +511,7 @@ mummerplot -p dot_hifiasm_HIFI_SRR34390379_HIC_SRR34411203_plot -t png hifiasm_H
 
 # QUAST
 
-### **Reference genome: R.solani AG-1**
+### **Reference genome: _R.solani_ AG-1**
  
 ```
 quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "spades_illumina_pe, smart_nanopore, smart_hifi, miniasm_nanopore, miniasm_hifi, hifiasm" assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
@@ -446,7 +520,7 @@ quast -r ref/GCF_016906535.1_ASM1690653v1_genomic.fna -l "spades_illumina_pe, sm
 ![Quast analysis Ref: AG-1](./data/images/quast_all_AG1_2.png)
 
 
-### **Reference genome: R.solani AG-8**
+### **Reference genome: _R.solani_ AG-8**
 Throughout all stages of the analysis, the AG-1 reference genome was used due to its higher completeness. The QUAST comparison against the AG-8 reference genome was performed only for illustrative purposes, as this assembly consists of 857 scaffolds and is of lower quality than the assembly generated by me.
 ```
 quast -r ref/GCA_000695385.1_RSAG8-1.V1_genomic.fna -l "spades_illumina_pe, smart_nanopore, smart_hifi, miniasm_nanopore, miniasm_hifi, hifiasm" assembly/spades_illumina_SRR11560048_pe/scaffolds.fasta assembly/SMARTdenovo_nanopore_SRR17331923/SMARTdenovo_nanopore_SRR17331923.dmo.cns assembly/SMARTdenovo_HIFI_SRR11560043/SMARTdenovo_HIFI_SRR11560043.dmo.cns assembly/Minimap2_nanopore_SRR17331923/miniasm_nanopore_SRR17331923.fa assembly/Minimap2_HIFI_SRR11560043/miniasm_HIFI_SRR11560043.fa assembly/Hifiasm_HIFI_SRR34390379_HIC_SRR34411203/hifiasm_HIFI_SRR34390379_HIC_SRR34411203.hic.p_ctg.fa
@@ -459,7 +533,7 @@ quast -r ref/GCA_000695385.1_RSAG8-1.V1_genomic.fna -l "spades_illumina_pe, smar
 
 ### **HiFi SRR34390379 + Hi-C SRR34411203 using Illumina SRR8926039 reads**
 
-Polishing genome assembly was performed using short Illumina reads from R.solani AG-8 strain.   
+Polishing genome assembly was performed using short Illumina reads from _R.solani_ AG-8 strain.   
 
 ```
 mkdir CORRECTED_Masurca_Hifiasm_HIFI_SRR34390379_HIC_SRR34411203_illumina_SRR8926039
@@ -827,7 +901,7 @@ New GTF file contains genes with information about GO and KEGG:
 
 
 ## **Analysis of genome assembly**  
-The genome of Rhizoctonia solani consists of 16 chromosomes. Visualization in Bandage clearly shows 16 large scaffolds and more than 140 small contigs. Following genome annotation, many of these small contigs remained unannotated.   
+The genome of _Rhizoctonia solani_ consists of 16 chromosomes. Visualization in Bandage clearly shows 16 large scaffolds and more than 140 small contigs. Following genome annotation, many of these small contigs remained unannotated.   
 
 ### **Python scripts used for analysis**
 
@@ -1224,12 +1298,12 @@ FNR==NR {chr[$1]=$2; start[$1]=$3; end[$1]=$4; next}
 
 ## **Conclusion**
 
-In this project, I applied a comprehensive bioinformatics pipeline for genome assembly, annotation, and analysis of Rhizoctonia solani. Using publicly available sequencing data generated by multiple technologies (HiFi, Nanopore, Illumina, Hi-C, and RNA-seq), I performed all major stages of genome analysis, including quality control, de novo assembly, scaffolding, polishing, gene prediction, and functional annotation.     
+In this project, I applied a comprehensive bioinformatics pipeline for genome assembly, annotation, and analysis of _Rhizoctonia solani_. Using publicly available sequencing data generated by multiple technologies (HiFi, Nanopore, Illumina, Hi-C, and RNA-seq), I performed all major stages of genome analysis, including quality control, de novo assembly, scaffolding, polishing, gene prediction, and functional annotation.     
 
 Through a comparative evaluation of different assembly strategies, I demonstrated that long-read and hybrid approaches—particularly assemblies generated with hifiasm using HiFi and Hi-C data—produced the most contiguous and structurally coherent genomes. These assemblies achieved higher N50 values and reduced fragmentation compared to short-read-only approaches.   
 
 Gene prediction performed with BRAKER3, supported by RNA-seq and protein evidence, resulted in a high-quality gene set. BUSCO completeness scores indicated that the majority of conserved fungal genes were successfully recovered at both the genome and protein levels. Functional annotation using EggNOG provided additional biological context by assigning predicted genes to orthologous groups and functional categories.   
 
-Repeat annotation and genome-wide statistics revealed that a substantial fraction of the R. solani genome is composed of repetitive elements, accounting for approximately 24% of the assembly. Detailed analysis of scaffold composition demonstrated that large, chromosome-scale scaffolds contain the majority of annotated genes, whereas many smaller scaffolds are either highly repetitive or lack gene annotations and exhibit atypical GC content. These observations informed decisions regarding scaffold inclusion in the final annotation and highlighted regions that may require further refinement or biological investigation.   
+Repeat annotation and genome-wide statistics revealed that a substantial fraction of the _R.solani_ genome is composed of repetitive elements, accounting for approximately 24% of the assembly. Detailed analysis of scaffold composition demonstrated that large, chromosome-scale scaffolds contain the majority of annotated genes, whereas many smaller scaffolds are either highly repetitive or lack gene annotations and exhibit atypical GC content. These observations informed decisions regarding scaffold inclusion in the final annotation and highlighted regions that may require further refinement or biological investigation.   
 
 Finally, visualization of assembly graphs and genomic features using tools such as Bandage, Circos, and MUMmer-based dot plots facilitated interpretation of genome structure and scaffold-to-reference relationships, supporting the identification of chromosome-scale scaffolds and structurally ambiguous regions.   
